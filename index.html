@@ -3,41 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NolannaxStudio - Téléchargements</title>
+  <title>NolannaxStudio</title>
   <style>
+    /* ----- STYLE GLOBAL ----- */
     body {
-      font-family: Arial, sans-serif;
+      margin: 0;
+      font-family: "Poppins", sans-serif;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: white;
-      text-align: center;
-      margin: 0;
-      padding: 0;
+      overflow-x: hidden;
     }
 
     header {
-      background-color: rgba(0,0,0,0.4);
+      background-color: rgba(0, 0, 0, 0.5);
+      text-align: center;
       padding: 20px;
       font-size: 2em;
-      font-weight: bold;
       letter-spacing: 2px;
+      font-weight: bold;
       text-transform: uppercase;
+      animation: fadeDown 1s ease-in-out;
     }
 
-    .content {
-      margin-top: 40px;
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 15px;
     }
 
-    .file {
+    nav button {
+      background: none;
+      border: 2px solid #1abc9c;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-weight: bold;
+    }
+
+    nav button:hover {
+      background-color: #1abc9c;
+      transform: scale(1.05);
+    }
+
+    .page {
+      display: none;
+      padding: 40px 20px;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .active {
+      display: block;
+    }
+
+    .file-card {
       background-color: rgba(255,255,255,0.1);
-      border-radius: 10px;
+      border-radius: 15px;
       padding: 20px;
       margin: 20px auto;
-      width: 80%;
+      width: 90%;
       max-width: 400px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      transition: all 0.3s;
+      font-size: 1.2em;
     }
 
-    button {
+    .file-card:hover {
+      transform: scale(1.05);
+      background-color: rgba(255,255,255,0.15);
+    }
+
+    button.download {
       background-color: #1abc9c;
       border: none;
       padding: 10px 20px;
@@ -48,35 +89,87 @@
       transition: 0.3s;
     }
 
-    button:disabled {
+    button.download:disabled {
       background-color: gray;
       cursor: not-allowed;
     }
 
     footer {
-      margin-top: 50px;
+      text-align: center;
       font-size: 0.8em;
       opacity: 0.7;
+      margin: 40px 0;
+    }
+
+    .progress-bar {
+      width: 80%;
+      max-width: 400px;
+      margin: 20px auto;
+      height: 15px;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .progress {
+      height: 100%;
+      width: 0%;
+      background-color: #1abc9c;
+      transition: width 1s linear;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
   <header>NolannaxStudio</header>
 
-  <div class="content">
-    <h2>📦 Téléchargements disponibles</h2>
+  <nav>
+    <button onclick="showPage('home')">Accueil</button>
+    <button onclick="showPage('downloads')">Téléchargement</button>
+    <button onclick="showPage('contact')">Contact</button>
+  </nav>
 
-    <div class="file">
-      <h3>Fichier #1 — Exemple.zip</h3>
-      <p>Temps avant téléchargement : <span id="timer1">05:00</span></p>
-      <button id="downloadBtn1" disabled>Télécharger</button>
+  <!-- PAGE D'ACCUEIL -->
+  <div id="home" class="page active">
+    <h2>Bienvenue sur NolannaxStudio 🌟</h2>
+    <p>Bienvenue dans notre studio numérique. Découvrez nos outils exclusifs et nos créations.</p>
+  </div>
+
+  <!-- PAGE DE TÉLÉCHARGEMENT -->
+  <div id="downloads" class="page">
+    <h2>📦 Fichier disponible</h2>
+    <div class="file-card" onclick="openFile('AutoClicker.exe', 'download/AutoClicker.exe')">
+      ⚙️ AutoClicker.exe
+    </div>
+  </div>
+
+  <!-- PAGE DU FICHIER -->
+  <div id="filePage" class="page">
+    <h2 id="fileName">Nom du fichier</h2>
+    <p>⏱️ Temps avant téléchargement : <span id="timer">05:00</span></p>
+
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
     </div>
 
-    <div class="file">
-      <h3>Fichier #2 — OutilPro.exe</h3>
-      <p>Temps avant téléchargement : <span id="timer2">05:00</span></p>
-      <button id="downloadBtn2" disabled>Télécharger</button>
-    </div>
+    <button id="downloadBtn" class="download" disabled>Télécharger</button><br><br>
+    <button onclick="showPage('downloads')">⬅ Retour</button>
+  </div>
+
+  <!-- PAGE CONTACT -->
+  <div id="contact" class="page">
+    <h2>📬 Contact</h2>
+    <p>Discord : <strong>@nolannaxstudio</strong></p>
+    <p>Email : <strong>contact@nolannaxstudio.com</strong></p>
   </div>
 
   <footer>
@@ -84,36 +177,48 @@
   </footer>
 
   <script>
-    // Fonction qui gère le compteur
-    function startCountdown(timerId, buttonId, fileURL) {
-      let timeLeft = 5 * 60; // 5 minutes
-      const timerElement = document.getElementById(timerId);
-      const button = document.getElementById(buttonId);
+    // --- Navigation ---
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+    }
 
-      const interval = setInterval(() => {
-        const minutes = Math.floor(timeLeft / 60);
-        const seconds = timeLeft % 60;
-        timerElement.textContent = 
-          `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        
+    // --- Gestion du fichier AutoClicker ---
+    let countdown;
+    function openFile(name, url) {
+      showPage('filePage');
+      document.getElementById('fileName').textContent = "Téléchargement : " + name;
+      document.getElementById('downloadBtn').disabled = true;
+      document.getElementById('downloadBtn').textContent = "En attente...";
+      document.getElementById('timer').textContent = "05:00";
+      document.getElementById('progress').style.width = "0%";
+
+      clearInterval(countdown);
+      let timeLeft = 5 * 60;
+      const progress = document.getElementById('progress');
+
+      countdown = setInterval(() => {
+        const min = Math.floor(timeLeft / 60);
+        const sec = timeLeft % 60;
+        document.getElementById('timer').textContent =
+          `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+
+        // Barre de progression
+        const elapsed = (5 * 60 - timeLeft);
+        const percent = (elapsed / (5 * 60)) * 100;
+        progress.style.width = percent + "%";
+
         if (timeLeft <= 0) {
-          clearInterval(interval);
-          timerElement.textContent = "00:00";
-          button.disabled = false;
-          button.textContent = "Télécharger maintenant";
+          clearInterval(countdown);
+          document.getElementById('timer').textContent = "00:00";
+          document.getElementById('downloadBtn').disabled = false;
+          document.getElementById('downloadBtn').textContent = "Télécharger maintenant";
+          document.getElementById('downloadBtn').onclick = () => window.location.href = url;
+          progress.style.width = "100%";
         }
         timeLeft--;
       }, 1000);
-
-      // Lien de téléchargement
-      button.addEventListener('click', () => {
-        window.location.href = fileURL;
-      });
     }
-
-    // Ajouter tes fichiers ici ↓
-    startCountdown("timer1", "downloadBtn1", "fichiers/Exemple.zip");
-    startCountdown("timer2", "downloadBtn2", "fichiers/OutilPro.exe");
   </script>
 </body>
 </html>
