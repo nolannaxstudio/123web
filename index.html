@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NolannaxStudio</title>
   <style>
-    /* ----- STYLE GLOBAL ----- */
     body {
       margin: 0;
       font-family: "Poppins", sans-serif;
@@ -19,9 +18,9 @@
       text-align: center;
       padding: 20px;
       font-size: 2em;
-      letter-spacing: 2px;
       font-weight: bold;
       text-transform: uppercase;
+      letter-spacing: 2px;
       animation: fadeDown 1s ease-in-out;
     }
 
@@ -40,8 +39,8 @@
       padding: 10px 20px;
       border-radius: 25px;
       cursor: pointer;
-      transition: all 0.3s;
       font-weight: bold;
+      transition: all 0.3s;
     }
 
     nav button:hover {
@@ -138,16 +137,16 @@
     <button onclick="showPage('contact')">Contact</button>
   </nav>
 
-  <!-- PAGE D'ACCUEIL -->
+  <!-- PAGE ACCUEIL -->
   <div id="home" class="page active">
     <h2>Bienvenue sur NolannaxStudio 🌟</h2>
-    <p>Bienvenue dans notre studio numérique. Découvrez nos outils exclusifs et nos créations.</p>
+    <p>Découvrez nos outils exclusifs et nos créations !</p>
   </div>
 
-  <!-- PAGE DE TÉLÉCHARGEMENT -->
+  <!-- PAGE TÉLÉCHARGEMENT -->
   <div id="downloads" class="page">
     <h2>📦 Fichier disponible</h2>
-    <div class="file-card" onclick="openFile('AutoClicker.exe', 'download/AutoClicker.exe')">
+    <div class="file-card" onclick="openFile('AutoClicker.exe', 'AutoClicker.exe')">
       ⚙️ AutoClicker.exe
     </div>
   </div>
@@ -177,13 +176,12 @@
   </footer>
 
   <script>
-    // --- Navigation ---
     function showPage(pageId) {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       document.getElementById(pageId).classList.add('active');
     }
 
-    // --- Gestion du fichier AutoClicker ---
+    // --- Téléchargement avec compteur ---
     let countdown;
     function openFile(name, url) {
       showPage('filePage');
@@ -203,7 +201,6 @@
         document.getElementById('timer').textContent =
           `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
 
-        // Barre de progression
         const elapsed = (5 * 60 - timeLeft);
         const percent = (elapsed / (5 * 60)) * 100;
         progress.style.width = percent + "%";
