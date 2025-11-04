@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NolannaxStudio - Téléchargements</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: rgba(0,0,0,0.4);
+      padding: 20px;
+      font-size: 2em;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .content {
+      margin-top: 40px;
+    }
+
+    .file {
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px auto;
+      width: 80%;
+      max-width: 400px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    button {
+      background-color: #1abc9c;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:disabled {
+      background-color: gray;
+      cursor: not-allowed;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 0.8em;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <header>NolannaxStudio</header>
+
+  <div class="content">
+    <h2>📦 Téléchargements disponibles</h2>
+
+    <div class="file">
+      <h3>Fichier #1 — Exemple.zip</h3>
+      <p>Temps avant téléchargement : <span id="timer1">05:00</span></p>
+      <button id="downloadBtn1" disabled>Télécharger</button>
+    </div>
+
+    <div class="file">
+      <h3>Fichier #2 — OutilPro.exe</h3>
+      <p>Temps avant téléchargement : <span id="timer2">05:00</span></p>
+      <button id="downloadBtn2" disabled>Télécharger</button>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 NolannaxStudio | Tous droits réservés.
+  </footer>
+
+  <script>
+    // Fonction qui gère le compteur
+    function startCountdown(timerId, buttonId, fileURL) {
+      let timeLeft = 5 * 60; // 5 minutes
+      const timerElement = document.getElementById(timerId);
+      const button = document.getElementById(buttonId);
+
+      const interval = setInterval(() => {
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        timerElement.textContent = 
+          `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        
+        if (timeLeft <= 0) {
+          clearInterval(interval);
+          timerElement.textContent = "00:00";
+          button.disabled = false;
+          button.textContent = "Télécharger maintenant";
+        }
+        timeLeft--;
+      }, 1000);
+
+      // Lien de téléchargement
+      button.addEventListener('click', () => {
+        window.location.href = fileURL;
+      });
+    }
+
+    // Ajouter tes fichiers ici ↓
+    startCountdown("timer1", "downloadBtn1", "fichiers/Exemple.zip");
+    startCountdown("timer2", "downloadBtn2", "fichiers/OutilPro.exe");
+  </script>
+</body>
+</html>
