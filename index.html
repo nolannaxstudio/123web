@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -14,172 +15,182 @@
       overflow-x: hidden;
     }
 
-    header {
-      background-color: rgba(0, 0, 0, 0.5);
-      text-align: center;
-      padding: 20px;
-      font-size: 2em;
-      letter-spacing: 2px;
-      font-weight: bold;
-      text-transform: uppercase;
-      animation: fadeDown 1s ease-in-out;
-    }
+```
+header {
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  padding: 20px;
+  font-size: 2em;
+  letter-spacing: 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+  animation: fadeDown 1s ease-in-out;
+}
 
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      background: rgba(0, 0, 0, 0.3);
-      padding: 15px;
-    }
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 15px;
+}
 
-    nav button {
-      background: none;
-      border: 2px solid #1abc9c;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 25px;
-      cursor: pointer;
-      transition: all 0.3s;
-      font-weight: bold;
-    }
+nav button {
+  background: none;
+  border: 2px solid #1abc9c;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: bold;
+}
 
-    nav button:hover {
-      background-color: #1abc9c;
-      transform: scale(1.05);
-    }
+nav button:hover {
+  background-color: #1abc9c;
+  transform: scale(1.05);
+}
 
-    .page {
-      display: none;
-      padding: 40px 20px;
-      text-align: center;
-      animation: fadeIn 1s ease-in-out;
-    }
+.page {
+  display: none;
+  padding: 40px 20px;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
 
-    .active {
-      display: block;
-    }
+.active {
+  display: block;
+}
 
-    .file-card {
-      background-color: rgba(255,255,255,0.1);
-      border-radius: 15px;
-      padding: 20px;
-      margin: 20px auto;
-      width: 90%;
-      max-width: 400px;
-      cursor: pointer;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
-      transition: all 0.3s;
-      font-size: 1.2em;
-    }
+.file-card {
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 400px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  transition: all 0.3s;
+  font-size: 1.2em;
+}
 
-    .file-card:hover {
-      transform: scale(1.05);
-      background-color: rgba(255,255,255,0.15);
-    }
+.file-card:hover {
+  transform: scale(1.05);
+  background-color: rgba(255,255,255,0.15);
+}
 
-    button.download {
-      background-color: #1abc9c;
-      border: none;
-      padding: 10px 20px;
-      color: white;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+button.download {
+  background-color: #1abc9c;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-    button.download:disabled {
-      background-color: gray;
-      cursor: not-allowed;
-    }
+button.download:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
 
-    footer {
-      text-align: center;
-      font-size: 0.8em;
-      opacity: 0.7;
-      margin: 40px 0;
-    }
+footer {
+  text-align: center;
+  font-size: 0.8em;
+  opacity: 0.7;
+  margin: 40px 0;
+}
 
-    .progress-bar {
-      width: 80%;
-      max-width: 400px;
-      margin: 20px auto;
-      height: 15px;
-      background-color: rgba(255,255,255,0.1);
-      border-radius: 10px;
-      overflow: hidden;
-    }
+.progress-bar {
+  width: 80%;
+  max-width: 400px;
+  margin: 20px auto;
+  height: 15px;
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
 
-    .progress {
-      height: 100%;
-      width: 0%;
-      background-color: #1abc9c;
-      transition: width 1s linear;
-    }
+.progress {
+  height: 100%;
+  width: 0%;
+  background-color: #1abc9c;
+  transition: width 1s linear;
+}
 
-    /* Page Coming Soon */
-    #coming-soon {
-      text-align: center;
-      padding: 60px 20px;
-    }
+/* Page Coming Soon */
+#coming-soon {
+  text-align: center;
+  padding: 60px 20px;
+}
 
-    #countdown {
-      display: flex;
-      justify-content: center;
-      gap: 18px;
-      flex-wrap: wrap;
-      margin-top: 30px;
-    }
+#countdown {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
 
-    .time-box {
-      background: rgba(255,255,255,0.1);
-      border-radius: 12px;
-      padding: 15px 25px;
-      min-width: 100px;
-    }
+.time-box {
+  background: rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 15px 25px;
+  min-width: 100px;
+}
 
-    .value {
-      font-size: 48px;
-      font-weight: 700;
-    }
+.value {
+  font-size: 48px;
+  font-weight: 700;
+}
 
-    .label {
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
+.label {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 
-    #alertBtn, #devBtn {
-      margin-top: 25px;
-      padding: 10px 25px;
-      border-radius: 6px;
-      border: none;
-      background: #1abc9c;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+#alertBtn, #devBtn, #testBtn {
+  margin-top: 25px;
+  padding: 10px 25px;
+  border-radius: 6px;
+  border: none;
+  background: #1abc9c;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-    #alertBtn:hover, #devBtn:hover {
-      background: white;
-      color: black;
-    }
+#alertBtn:hover, #devBtn:hover, #testBtn:hover {
+  background: white;
+  color: black;
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+```
+
   </style>
 </head>
 <body>
 
+  <!-- Formulaire caché Netlify -->
+
+  <form name="alerte" netlify netlify-honeypot="bot-field" hidden>
+    <input type="email" name="email" />
+  </form>
+
   <!-- PAGE COMPTE À REBOURS -->
+
   <div id="coming-soon">
     <h1>🚧 NolannaxStudio arrive bientôt 🚧</h1>
     <div id="countdown">
@@ -189,52 +200,57 @@
       <div class="time-box"><div class="value" id="seconds">00</div><div class="label">Secondes</div></div>
     </div>
     <button id="alertBtn">M'alerter</button>
+    <button id="testBtn">🧪 Test d'envoi</button>
     <button id="devBtn">Accès développeur</button>
   </div>
 
   <!-- SITE PRINCIPAL -->
+
   <div id="main-site" style="display:none;">
     <header>NolannaxStudio</header>
 
-    <nav>
-      <button onclick="showPage('home')">Accueil</button>
-      <button onclick="showPage('downloads')">Téléchargement</button>
-      <button onclick="showPage('contact')">Contact</button>
-    </nav>
+```
+<nav>
+  <button onclick="showPage('home')">Accueil</button>
+  <button onclick="showPage('downloads')">Téléchargement</button>
+  <button onclick="showPage('contact')">Contact</button>
+</nav>
 
-    <!-- PAGE D'ACCUEIL -->
-    <div id="home" class="page active">
-      <h2>Bienvenue sur NolannaxStudio 🌟</h2>
-      <p>Bienvenue dans notre studio numérique. Découvrez nos outils exclusifs et nos créations.</p>
-    </div>
+<!-- PAGE D'ACCUEIL -->
+<div id="home" class="page active">
+  <h2>Bienvenue sur NolannaxStudio 🌟</h2>
+  <p>Bienvenue dans notre studio numérique. Découvrez nos outils exclusifs et nos créations.</p>
+</div>
 
-  <!-- PAGE TÉLÉCHARGEMENT -->
-  <div id="downloads" class="page">
-    <h2>📦 Fichier disponible</h2>
-    <div class="file-card" onclick="openFile('AutoClicker.exe', 'AutoClicker.exe')">
-      ⚙️ AutoClicker.exe
-    </div>
+<!-- PAGE TÉLÉCHARGEMENT -->
+<div id="downloads" class="page">
+  <h2>📦 Fichier disponible</h2>
+  <div class="file-card" onclick="openFile('AutoClicker.exe', 'download/AutoClicker.exe')">
+    ⚙️ AutoClicker.exe
   </div>
+</div>
 
-    <!-- PAGE DU FICHIER -->
-    <div id="filePage" class="page">
-      <h2 id="fileName">Nom du fichier</h2>
-      <p>⏱️ Temps avant téléchargement : <span id="timer">05:00</span></p>
-      <div class="progress-bar"><div id="progress" class="progress"></div></div>
-      <button id="downloadBtn" class="download" disabled>Télécharger</button><br><br>
-      <button onclick="showPage('downloads')">⬅ Retour</button>
-    </div>
+<!-- PAGE DU FICHIER -->
+<div id="filePage" class="page">
+  <h2 id="fileName">Nom du fichier</h2>
+  <p>⏱️ Temps avant téléchargement : <span id="timer">05:00</span></p>
+  <div class="progress-bar"><div id="progress" class="progress"></div></div>
+  <button id="downloadBtn" class="download" disabled>Télécharger</button><br><br>
+  <button onclick="showPage('downloads')">⬅ Retour</button>
+</div>
 
-    <!-- PAGE CONTACT -->
-    <div id="contact" class="page">
-      <h2>📬 Contact</h2>
-      <p>Discord : <strong>@nolannaxstudio</strong></p>
-      <p>Email : <strong>contact@nolannaxstudio.com</strong></p>
-    </div>
+<!-- PAGE CONTACT -->
+<div id="contact" class="page">
+  <h2>📬 Contact</h2>
+  <p>Discord : <strong>@nolannaxstudio</strong></p>
+  <p>Email : <strong>contact@nolannaxstudio.com</strong></p>
+</div>
 
-    <footer>
-      © 2025 NolannaxStudio | Tous droits réservés.
-    </footer>
+<footer>
+  © 2025 NolannaxStudio | Tous droits réservés.
+</footer>
+```
+
   </div>
 
   <script>
@@ -278,20 +294,37 @@
       }
     });
 
-    // -------- ALERT EMAIL (factice) --------
+    // -------- ENVOI FORMULAIRE NETLIFY --------
+    function sendEmailToNetlify(email) {
+      const data = new FormData();
+      data.append("form-name", "alerte");
+      data.append("email", email);
+
+      fetch("/", {
+        method: "POST",
+        body: data
+      })
+      .then(() => alert("✅ Email envoyé avec succès sur Netlify !"))
+      .catch(() => alert("⚠️ Erreur : envoi impossible."));
+    }
+
     document.getElementById("alertBtn").addEventListener("click", () => {
       const email = prompt("Entre ton email pour être alerté à l’ouverture :");
-      if (email && /\S+@\S+\.\S+/.test(email)) alert("Tu seras alerté à l’ouverture !");
+      if (email && /\S+@\S+\.\S+/.test(email)) sendEmailToNetlify(email);
       else if (email) alert("Email invalide.");
     });
 
-    // -------- NAVIGATION INTERNE --------
+    document.getElementById("testBtn").addEventListener("click", () => {
+      sendEmailToNetlify("test@netlify.com");
+    });
+
+    // -------- NAVIGATION --------
     function showPage(pageId) {
       document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
       document.getElementById(pageId).classList.add("active");
     }
 
-    // -------- TÉLÉCHARGEMENT AVEC COMPTE À REBOURS --------
+    // -------- TÉLÉCHARGEMENT --------
     let countdown;
     function openFile(name, url) {
       showPage('filePage');
@@ -322,5 +355,6 @@
       }, 1000);
     }
   </script>
+
 </body>
 </html>
