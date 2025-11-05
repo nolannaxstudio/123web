@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NolannaxStudio</title>
   <style>
+    /* ----- STYLE GLOBAL ----- */
     body {
       margin: 0;
       font-family: "Poppins", sans-serif;
@@ -117,6 +118,7 @@
       transition: width 1s linear;
     }
 
+    /* Page Coming Soon */
     #coming-soon {
       text-align: center;
       padding: 60px 20px;
@@ -147,7 +149,7 @@
       letter-spacing: 1px;
     }
 
-    #alertBtn, #devBtn, #testBtn {
+    #alertBtn, #devBtn {
       margin-top: 25px;
       padding: 10px 25px;
       border-radius: 6px;
@@ -159,7 +161,7 @@
       transition: 0.3s;
     }
 
-    #alertBtn:hover, #devBtn:hover, #testBtn:hover {
+    #alertBtn:hover, #devBtn:hover {
       background: white;
       color: black;
     }
@@ -188,7 +190,6 @@
     </div>
     <button id="alertBtn">M'alerter</button>
     <button id="devBtn">Accès développeur</button>
-    <button id="testBtn">Bouton de test</button>
   </div>
 
   <!-- SITE PRINCIPAL -->
@@ -207,13 +208,13 @@
       <p>Bienvenue dans notre studio numérique. Découvrez nos outils exclusifs et nos créations.</p>
     </div>
 
-    <!-- PAGE TÉLÉCHARGEMENT -->
-    <div id="downloads" class="page">
-      <h2>📦 Fichier disponible</h2>
-      <div class="file-card" onclick="openFile('AutoClicker.exe', 'AutoClicker.exe')">
-        ⚙️ AutoClicker.exe
-      </div>
+  <!-- PAGE TÉLÉCHARGEMENT -->
+  <div id="downloads" class="page">
+    <h2>📦 Fichier disponible</h2>
+    <div class="file-card" onclick="openFile('AutoClicker.exe', 'AutoClicker.exe')">
+      ⚙️ AutoClicker.exe
     </div>
+  </div>
 
     <!-- PAGE DU FICHIER -->
     <div id="filePage" class="page">
@@ -277,18 +278,20 @@
       }
     });
 
-    // -------- BOUTON DE TEST --------
-    document.getElementById("testBtn").addEventListener("click", () => {
-      alert("✅ Message envoyé avec succès !");
+    // -------- ALERT EMAIL (factice) --------
+    document.getElementById("alertBtn").addEventListener("click", () => {
+      const email = prompt("Entre ton email pour être alerté à l’ouverture :");
+      if (email && /\S+@\S+\.\S+/.test(email)) alert("Tu seras alerté à l’ouverture !");
+      else if (email) alert("Email invalide.");
     });
 
-    // -------- NAVIGATION --------
+    // -------- NAVIGATION INTERNE --------
     function showPage(pageId) {
       document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
       document.getElementById(pageId).classList.add("active");
     }
 
-    // -------- TÉLÉCHARGEMENT AVEC MINUTEUR --------
+    // -------- TÉLÉCHARGEMENT AVEC COMPTE À REBOURS --------
     let countdown;
     function openFile(name, url) {
       showPage('filePage');
