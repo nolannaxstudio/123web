@@ -19,11 +19,20 @@ header {
   background-color: rgba(0, 0, 0, 0.5);
   text-align: center;
   padding: 20px;
-  font-size: 2em;
-  letter-spacing: 2px;
-  font-weight: bold;
-  text-transform: uppercase;
   animation: fadeDown 1s ease-in-out;
+}
+
+/* Logo */
+header .logo {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 15px; /* arrondi doux */
+  transition: transform 0.3s ease;
+}
+
+header .logo:hover {
+  transform: scale(1.05);
 }
 
 /* NAVIGATION */
@@ -201,7 +210,6 @@ footer {
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
   </style>
 </head>
 <body>
@@ -227,7 +235,9 @@ footer {
 
 <!-- SITE PRINCIPAL -->
 <div id="main-site" style="display:none;">
-  <header>NolannaxStudio</header>
+  <header>
+    <img src="logo.png" alt="Logo NolannaxStudio" class="logo">
+  </header>
 
   <nav>
     <button onclick="showPage('home')">Accueil</button>
