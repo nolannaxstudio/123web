@@ -4,240 +4,243 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NolannaxStudio</title>
+
+  <!-- 🔹 Favicon du site -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
   <style>
-/* ----- STYLE GLOBAL ----- */
-body {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: white;
-  overflow-x: hidden;
-}
+    /* ----- STYLE GLOBAL ----- */
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      overflow-x: hidden;
+    }
 
-/* HEADER */
-header {
-  background-color: rgba(0, 0, 0, 0.5);
-  text-align: center;
-  padding: 20px;
-  animation: fadeDown 1s ease-in-out;
-}
+    /* HEADER */
+    header {
+      background-color: rgba(0, 0, 0, 0.5);
+      text-align: center;
+      padding: 20px;
+      animation: fadeDown 1s ease-in-out;
+    }
 
-/* Logo */
-header .logo {
-  width: 120px;
-  height: auto;
-  object-fit: contain;
-  border-radius: 15px; /* arrondi doux */
-  transition: transform 0.3s ease;
-}
+    header .logo {
+      width: 120px; /* Taille du logo */
+      height: auto;
+      object-fit: contain;
+      border-radius: 15px; /* Coins arrondis (optionnel) */
+    }
 
-header .logo:hover {
-  transform: scale(1.05);
-}
+    /* NAVIGATION */
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 15px;
+    }
 
-/* NAVIGATION */
-nav {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  background: rgba(0, 0, 0, 0.3);
-  padding: 15px;
-}
+    nav button {
+      background: none;
+      border: 2px solid #1abc9c;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-weight: bold;
+    }
 
-nav button {
-  background: none;
-  border: 2px solid #1abc9c;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: all 0.3s;
-  font-weight: bold;
-}
+    nav button:hover {
+      background-color: #1abc9c;
+      transform: scale(1.05);
+    }
 
-nav button:hover {
-  background-color: #1abc9c;
-  transform: scale(1.05);
-}
+    /* PAGES */
+    .page {
+      display: none;
+      padding: 40px 20px;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
 
-/* PAGES */
-.page {
-  display: none;
-  padding: 40px 20px;
-  text-align: center;
-  animation: fadeIn 1s ease-in-out;
-}
+    .active {
+      display: block;
+    }
 
-.active {
-  display: block;
-}
+    /* CARTES */
+    .file-card {
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px auto;
+      width: 90%;
+      max-width: 400px;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      transition: all 0.3s;
+      font-size: 1.2em;
+    }
 
-/* CARTES */
-.file-card {
-  background-color: rgba(255,255,255,0.1);
-  border-radius: 15px;
-  padding: 20px;
-  margin: 20px auto;
-  width: 90%;
-  max-width: 400px;
-  cursor: pointer;
-  box-shadow: 0 0 10px rgba(0,0,0,0.4);
-  transition: all 0.3s;
-  font-size: 1.2em;
-}
+    .file-card:hover {
+      transform: scale(1.05);
+      background-color: rgba(255,255,255,0.15);
+    }
 
-.file-card:hover {
-  transform: scale(1.05);
-  background-color: rgba(255,255,255,0.15);
-}
+    /* FOOTER */
+    footer {
+      text-align: center;
+      font-size: 0.8em;
+      opacity: 0.7;
+      margin: 40px 0;
+    }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  font-size: 0.8em;
-  opacity: 0.7;
-  margin: 40px 0;
-}
+    /* BARRE DE PROGRESSION */
+    .progress-bar {
+      width: 80%;
+      max-width: 400px;
+      margin: 20px auto;
+      height: 15px;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
 
-/* BARRE DE PROGRESSION */
-.progress-bar {
-  width: 80%;
-  max-width: 400px;
-  margin: 20px auto;
-  height: 15px;
-  background-color: rgba(255,255,255,0.1);
-  border-radius: 10px;
-  overflow: hidden;
-}
+    .progress {
+      height: 100%;
+      width: 0%;
+      background-color: #1abc9c;
+      transition: width 1s linear;
+    }
 
-.progress {
-  height: 100%;
-  width: 0%;
-  background-color: #1abc9c;
-  transition: width 1s linear;
-}
+    /* ----- PAGE COMING SOON ----- */
+    #coming-soon {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+    }
 
-/* ----- PAGE COMING SOON ----- */
-#coming-soon {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: white;
-  overflow: hidden;
-}
+    /* Vidéo de fond */
+    #coming-soon video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.35;
+      z-index: -1;
+      pointer-events: none;
+      background: black;
+    }
 
-/* Vidéo de fond */
-#coming-soon video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.35;
-  z-index: -1;
-  pointer-events: none;
-  background: black;
-}
+    /* Contenu */
+    .coming-content {
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
 
-/* Contenu */
-.coming-content {
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+    /* Compte à rebours */
+    #countdown {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin: 25px 0;
+    }
 
-/* Compte à rebours */
-#countdown {
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-  flex-wrap: wrap;
-  margin: 25px 0;
-}
+    .time-box {
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 15px 25px;
+      min-width: 100px;
+      backdrop-filter: blur(5px);
+    }
 
-.time-box {
-  background: rgba(255,255,255,0.1);
-  border-radius: 12px;
-  padding: 15px 25px;
-  min-width: 100px;
-  backdrop-filter: blur(5px);
-}
+    .value {
+      font-size: 48px;
+      font-weight: 700;
+    }
 
-.value {
-  font-size: 48px;
-  font-weight: 700;
-}
+    .label {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
 
-.label {
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
+    /* Boutons */
+    #alertBtn, #devBtn {
+      margin: 10px;
+      padding: 12px 30px;
+      border-radius: 8px;
+      border: none;
+      background: #1abc9c;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-/* Boutons */
-#alertBtn, #devBtn {
-  margin: 10px;
-  padding: 12px 30px;
-  border-radius: 8px;
-  border: none;
-  background: #1abc9c;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-}
+    #alertBtn:hover, #devBtn:hover {
+      background: white;
+      color: black;
+      transform: scale(1.05);
+    }
 
-#alertBtn:hover, #devBtn:hover {
-  background: white;
-  color: black;
-  transform: scale(1.05);
-}
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeDown {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
+
 <body>
-
-<div id="coming-soon">
-  <video id="backgroundVideo" autoplay muted loop playsinline>
-    <source src="Minuteur.mkv" type="video/mp4">
-    Votre navigateur ne supporte pas la lecture de vidéo.
-  </video>
-
-  <div class="coming-content">
-    <h1>🚧 NolannaxStudio arrive bientôt 🚧</h1>
-    <div id="countdown">
-      <div class="time-box"><div class="value" id="days">00</div><div class="label">Jours</div></div>
-      <div class="time-box"><div class="value" id="hours">00</div><div class="label">Heures</div></div>
-      <div class="time-box"><div class="value" id="minutes">00</div><div class="label">Minutes</div></div>
-      <div class="time-box"><div class="value" id="seconds">00</div><div class="label">Secondes</div></div>
+  <!-- PAGE COMING SOON -->
+  <div id="coming-soon">
+    <video id="backgroundVideo" autoplay muted loop playsinline>
+      <source src="Minuteur.mkv" type="video/mp4">
+      Votre navigateur ne supporte pas la lecture de vidéo.
+    </video>
+    <div class="coming-content">
+      <img src="logo.png" alt="Logo NolannaxStudio" class="logo" style="width:120px;margin-bottom:15px;">
+      <h1>🚧 NolannaxStudio arrive bientôt 🚧</h1>
+      <div id="countdown">
+        <div class="time-box"><div class="value" id="days">00</div><div class="label">Jours</div></div>
+        <div class="time-box"><div class="value" id="hours">00</div><div class="label">Heures</div></div>
+        <div class="time-box"><div class="value" id="minutes">00</div><div class="label">Minutes</div></div>
+        <div class="time-box"><div class="value" id="seconds">00</div><div class="label">Secondes</div></div>
+      </div>
+      <button id="alertBtn">M'alerter</button>
+      <button id="devBtn">Accès développeur</button>
     </div>
-    <button id="alertBtn">M'alerter</button>
-    <button id="devBtn">Accès développeur</button>
   </div>
-</div>
 
-<!-- SITE PRINCIPAL -->
-<div id="main-site" style="display:none;">
-  <header>
-    <img src="logo.png" alt="Logo NolannaxStudio" class="logo">
-  </header>
+  <!-- SITE PRINCIPAL -->
+  <div id="main-site" style="display:none;">
+    <header>
+      <img src="logo.png" alt="Logo NolannaxStudio" class="logo">
+    </header>
+  </div>
+</body>
+</html>
+
 
   <nav>
     <button onclick="showPage('home')">Accueil</button>
