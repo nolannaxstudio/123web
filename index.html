@@ -315,14 +315,20 @@ const timer = setInterval(updateCountdown, 1000);
 updateCountdown();
 
 /* -------- ACCÈS DÉVELOPPEUR -------- */
-document.getElementById("devBtn").addEventListener("click", () => {
-  const code = prompt("Entre le code développeur :");
-  if (code === "8965") {
-    alert("Accès autorisé !");
-    comingSoon.style.display = "none";
-    mainSite.style.display = "block";
-  } else {
-    alert("Code incorrect.");
+document.getElementById("devBtn").addEventListener("click", async () => {
+  try {
+    const response = await fetch("code.txt");
+    const realCode = (await response.text()).trim();
+    const code = prompt("Entre le code développeur :");
+    if (code === realCode) {
+      alert("Accès autorisé !");
+      comingSoon.style.display = "none";
+      mainSite.style.display = "block";
+    } else {
+      alert("Code incorrect.");
+    }
+  } catch (e) {
+    alert("Erreur : impossible de vérifier le code.");
   }
 });
 
