@@ -1,37 +1,64 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Nolannax Studios</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nolannax Studios</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header>
-    <img src="logo.png" alt="Nolannax Studios">
-    <h1>Nolannax Studios</h1>
-    <p>Studio de création de jeux Roblox</p>
-</header>
+<nav>
+  <div class="logo">NOLANNAX</div>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <ul id="menu">
+    <li><a href="#home">Accueil</a></li>
+    <li><a href="#games">Jeux</a></li>
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-<section class="about">
-    <h2>À propos</h2>
-    <p>
-        Nolannax Studios est un studio Roblox indépendant spécialisé dans
-        la création de jeux innovants, fun et immersifs.
-    </p>
+<section id="home" class="hero">
+  <img src="logo.png" class="hero-logo">
+  <h1>Nolannax Studios</h1>
+  <p>Studio de création de jeux Roblox</p>
+  <a href="#games" class="btn">Découvrir nos jeux</a>
 </section>
 
-<section class="games">
-    <h2>Nos jeux</h2>
-    <div class="game">
-        <h3>🔥 Jeu à venir</h3>
-        <p>Bientôt disponible sur Roblox</p>
+<section id="games" class="section">
+  <h2>🎮 Nos Jeux</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Jeu à venir</h3>
+      <p>Un gameplay innovant arrive bientôt.</p>
     </div>
+    <div class="card">
+      <h3>Projet secret</h3>
+      <p>En développement 👀</p>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section dark">
+  <h2>🐺 À propos</h2>
+  <p>
+    Nolannax Studios est un studio Roblox indépendant
+    spécialisé dans la création de jeux modernes,
+    immersifs et fun.
+  </p>
+</section>
+
+<section id="contact" class="section">
+  <h2>📩 Contact</h2>
+  <p>Discord : <strong>bientôt disponible</strong></p>
 </section>
 
 <footer>
-    <p>© 2026 Nolannax Studios</p>
+  © 2026 Nolannax Studios
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
