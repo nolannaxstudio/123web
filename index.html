@@ -8,22 +8,24 @@
 </head>
 <body>
 
+<!-- NAVBAR -->
 <nav class="navbar">
   <div class="nav-left">
     <img src="logo.png" class="nav-logo">
     <span>Nolannax Studios</span>
   </div>
   <ul class="nav-links">
-    <li>Accueil</li>
-    <li>Nos jeux</li>
-    <li>À propos</li>
-    <li>Contact</li>
+    <li><a href="#home">Accueil</a></li>
+    <li><a href="#nos-jeux">Nos jeux</a></li>
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<!-- HERO avec ton background -->
-<section class="hero">
+<!-- HERO -->
+<section id="home" class="hero">
   <div class="hero-bg"></div>
+  <div class="hero-glow"></div>
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
@@ -32,16 +34,40 @@
     <p class="subtitle">Studio de création de jeux Roblox</p>
 
     <div class="hero-buttons">
-      <a class="btn primary">Découvrir nos jeux</a>
+      <a href="#nos-jeux" class="btn primary">Découvrir nos jeux</a>
     </div>
   </div>
 </section>
 
-<!-- CONTENU NORMAL -->
-<section class="content">
+<!-- NOS JEUX -->
+<section id="nos-jeux" class="content">
   <h2>Nos jeux</h2>
   <p>Bientôt disponibles.</p>
 </section>
+
+<!-- À PROPOS -->
+<section id="about" class="content">
+  <h2>À propos</h2>
+  <p>Nolannax Studios est un studio Roblox indépendant spécialisé dans la création de jeux modernes, immersifs et fun.</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="content">
+  <h2>Contact</h2>
+  <p>Discord : <strong>bientôt disponible</strong></p>
+</section>
+
+<script>
+  // Scroll fluide
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
