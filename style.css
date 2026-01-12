@@ -8,7 +8,6 @@
 body {
   background: #05060a;
   color: white;
-  scroll-behavior: smooth; /* scroll fluide */
 }
 
 /* NAVBAR FIXE */
@@ -61,6 +60,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  scroll-margin-top: 70px; /* décale le scroll pour navbar */
 }
 
 /* IMAGE DE FOND */
@@ -70,7 +70,6 @@ body {
   background: url("hero-bg.png") center/cover no-repeat;
   filter: brightness(0.65);
   z-index: 1;
-  background-attachment: fixed; /* effet parallax */
 }
 
 /* BRILLANCE ANIMÉE */
@@ -100,7 +99,6 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  animation: contentFade 1.6s ease forwards;
 }
 
 .hero-logo {
@@ -152,11 +150,6 @@ body {
   0% { transform: translate(-20%, -20%); opacity: 0.4; }
   50% { transform: translate(20%, 10%); opacity: 0.7; }
   100% { transform: translate(-20%, -20%); opacity: 0.4; }
-}
-
-@keyframes contentFade {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes logoFloat {
