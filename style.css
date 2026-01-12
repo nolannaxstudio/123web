@@ -8,7 +8,7 @@
 body {
   background: #05060a;
   color: white;
-  scroll-behavior: smooth; /* Scroll fluide */
+  scroll-behavior: smooth; /* scroll fluide */
 }
 
 /* NAVBAR FIXE */
@@ -17,12 +17,12 @@ body {
   top: 0;
   width: 100%;
   height: 60px;
-  background: rgba(0,0,0,0.9);
+  background: rgba(0,0,0,0.85);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 30px;
-  z-index: 1000;
+  z-index: 999;
 }
 
 .nav-left {
@@ -41,13 +41,14 @@ body {
   gap: 25px;
 }
 
-.nav-links li a {
-  color: white;
+.nav-links a {
   text-decoration: none;
+  color: white;
+  font-weight: bold;
   transition: 0.3s;
 }
 
-.nav-links li a:hover {
+.nav-links a:hover {
   color: #3b82f6;
 }
 
@@ -56,7 +57,10 @@ body {
   position: relative;
   height: 520px;
   overflow: hidden;
-  margin-top: 60px; /* espace pour navbar fixe */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 /* IMAGE DE FOND */
@@ -64,51 +68,32 @@ body {
   position: absolute;
   inset: 0;
   background: url("hero-bg.png") center/cover no-repeat;
-  filter: brightness(0.6);
+  filter: brightness(0.65);
   z-index: 1;
-}
-
-/* DÉGRADÉ COLORÉ ANIMÉ */
-.hero-color {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, #3b82f6, #8b5cf6, #f472b6, #facc15, #10b981);
-  background-size: 400% 400%;
-  animation: colorShift 15s ease infinite;
-  mix-blend-mode: overlay; /* mélange avec le background */
-  opacity: 0.5;
-  z-index: 2;
+  background-attachment: fixed; /* effet parallax */
 }
 
 /* BRILLANCE ANIMÉE */
 .hero-glow {
   position: absolute;
   inset: -30%;
-  background: radial-gradient(
-    circle,
-    rgba(100,170,255,0.18),
-    rgba(0,0,0,0)
-  );
+  background: radial-gradient(circle, rgba(100,170,255,0.18), rgba(0,0,0,0));
   animation: glowMove 18s ease-in-out infinite;
-  z-index: 3;
+  z-index: 2;
 }
 
 /* OVERLAY */
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.5),
-    rgba(0,0,0,0.85)
-  );
-  z-index: 4;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.9));
+  z-index: 3;
 }
 
 /* CONTENU HERO */
 .hero-content {
   position: relative;
-  z-index: 5;
+  z-index: 4;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -118,7 +103,6 @@ body {
   animation: contentFade 1.6s ease forwards;
 }
 
-/* LOGO FLOTTANT */
 .hero-logo {
   width: 90px;
   margin-bottom: 15px;
@@ -146,44 +130,28 @@ body {
   font-weight: bold;
   cursor: pointer;
   text-decoration: none;
-  transition: 0.3s;
 }
 
-.btn.primary {
+.primary {
   background: #3b82f6;
   color: white;
 }
 
-.btn.primary:hover {
-  transform: scale(1.05);
+/* SECTIONS */
+.content {
+  padding: 120px 40px;
 }
 
-/* SECTIONS CONTENT */
-.content {
-  padding: 80px 30px;
-  text-align: center;
+/* SECTION DARK */
+.dark {
+  background: rgba(0,0,0,0.2);
 }
 
 /* ANIMATIONS */
 @keyframes glowMove {
-  0% {
-    transform: translate(-20%, -20%);
-    opacity: 0.4;
-  }
-  50% {
-    transform: translate(20%, 10%);
-    opacity: 0.7;
-  }
-  100% {
-    transform: translate(-20%, -20%);
-    opacity: 0.4;
-  }
-}
-
-@keyframes logoFloat {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-  100% { transform: translateY(0); }
+  0% { transform: translate(-20%, -20%); opacity: 0.4; }
+  50% { transform: translate(20%, 10%); opacity: 0.7; }
+  100% { transform: translate(-20%, -20%); opacity: 0.4; }
 }
 
 @keyframes contentFade {
@@ -191,10 +159,10 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes colorShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+@keyframes logoFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
 }
 
 /* MOBILE */
@@ -209,7 +177,6 @@ body {
 
   .hero-buttons {
     flex-direction: column;
-    gap: 15px;
   }
 
   .nav-links {
