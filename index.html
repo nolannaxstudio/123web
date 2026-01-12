@@ -6,59 +6,53 @@
 <title>Nolannax Studios</title>
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<nav>
-  <div class="logo">NOLANNAX</div>
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-  <ul id="menu">
-    <li><a href="#home">Accueil</a></li>
-    <li><a href="#games">Jeux</a></li>
-    <li><a href="#about">À propos</a></li>
-    <li><a href="#contact">Contact</a></li>
+<nav class="navbar">
+  <div class="nav-left">
+    <img src="logo.png" class="nav-logo">
+    <span>Nolannax Studios</span>
+  </div>
+  <ul class="nav-links">
+    <li>Home</li>
+    <li>Our Games</li>
+    <li>About Us</li>
+    <li>Contact</li>
   </ul>
 </nav>
 
-<section id="home" class="hero">
-  <img src="logo.png" class="hero-logo">
-  <h1>Nolannax Studios</h1>
-  <p>Studio de création de jeux Roblox</p>
-  <a href="#games" class="btn">Découvrir nos jeux</a>
-</section>
+<!-- HERO COMME DO BIG -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
 
-<section id="games" class="section">
-  <h2>🎮 Nos Jeux</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Jeu à venir</h3>
-      <p>Un gameplay innovant arrive bientôt.</p>
+  <div class="hero-content">
+    <img src="logo.png" class="hero-logo">
+    <h1>Nolannax Studios</h1>
+
+    <div class="hero-buttons">
+      <a class="btn primary">Explore our games</a>
+      <a class="btn secondary">Talk to us</a>
     </div>
-    <div class="card">
-      <h3>Projet secret</h3>
-      <p>En développement 👀</p>
+
+    <div class="stats">
+      <div>
+        <h2>432 539</h2>
+        <p>Players playing our games</p>
+      </div>
+      <div>
+        <h2>109.7B+</h2>
+        <p>Total play sessions</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="about" class="section dark">
-  <h2>🐺 À propos</h2>
-  <p>
-    Nolannax Studios est un studio Roblox indépendant
-    spécialisé dans la création de jeux modernes,
-    immersifs et fun.
-  </p>
+<!-- CONTENU NORMAL -->
+<section class="content">
+  <h2>Nos Jeux</h2>
+  <p>Bientôt disponibles.</p>
 </section>
 
-<section id="contact" class="section">
-  <h2>📩 Contact</h2>
-  <p>Discord : <strong>bientôt disponible</strong></p>
-</section>
-
-<footer>
-  © 2026 Nolannax Studios
-</footer>
-
-<script src="script.js"></script>
 </body>
 </html>
