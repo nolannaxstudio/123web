@@ -8,66 +8,52 @@
 </head>
 <body>
 
-<!-- NAVBAR -->
+<!-- NAVBAR FIXE -->
 <nav class="navbar">
   <div class="nav-left">
-    <img src="logo.png" class="nav-logo">
+    <img src="logo.png" class="nav-logo" alt="Logo Nolannax">
     <span>Nolannax Studios</span>
   </div>
   <ul class="nav-links">
     <li><a href="#home">Accueil</a></li>
-    <li><a href="#nos-jeux">Nos jeux</a></li>
+    <li><a href="#games">Nos jeux</a></li>
     <li><a href="#about">À propos</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
-<section id="home" class="hero">
+<section class="hero" id="home">
   <div class="hero-bg"></div>
   <div class="hero-glow"></div>
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
-    <img src="logo.png" class="hero-logo">
+    <img src="logo.png" class="hero-logo" alt="Logo Nolannax">
     <h1>Nolannax Studios</h1>
     <p class="subtitle">Studio de création de jeux Roblox</p>
 
     <div class="hero-buttons">
-      <a href="#nos-jeux" class="btn primary">Découvrir nos jeux</a>
+      <a class="btn primary" href="#games">Découvrir nos jeux</a>
     </div>
   </div>
 </section>
 
-<!-- NOS JEUX -->
-<section id="nos-jeux" class="content">
+<!-- CONTENU NORMAL -->
+<section class="content" id="games">
   <h2>Nos jeux</h2>
   <p>Bientôt disponibles.</p>
 </section>
 
-<!-- À PROPOS -->
-<section id="about" class="content">
+<section class="content" id="about">
   <h2>À propos</h2>
   <p>Nolannax Studios est un studio Roblox indépendant spécialisé dans la création de jeux modernes, immersifs et fun.</p>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="content">
+<section class="content" id="contact">
   <h2>Contact</h2>
-  <p>Discord : <strong>bientôt disponible</strong></p>
+  <p>Discord : bientôt disponible</p>
 </section>
-
-<script>
-  // Scroll fluide
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
-      });
-    });
-  });
-</script>
 
 </body>
 </html>
