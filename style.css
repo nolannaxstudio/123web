@@ -6,14 +6,15 @@
 }
 
 body {
-  background: #05060a;
+  background: url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
   color: white;
 }
 
 /* NAVBAR */
 .navbar {
   height: 60px;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.7);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -59,55 +60,26 @@ body {
 .hero {
   position: relative;
   height: 600px;
-  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding-top: 60px;
 }
 
-/* IMAGE DE FOND */
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, #1e1e2f, #05060a);
-  z-index: 1;
-}
-
-/* ANIMATION DE BRILLANCE */
-.hero-glow {
-  position: absolute;
-  inset: -30%;
-  background: radial-gradient(circle, rgba(59,130,246,0.15), transparent 70%);
-  animation: glowMove 20s ease-in-out infinite;
-  z-index: 2;
-}
-
-/* OVERLAY */
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.9));
-  z-index: 3;
-}
-
-/* CONTENU HERO */
 .hero-content {
-  position: relative;
-  z-index: 4;
   animation: contentFade 1.6s ease forwards;
 }
 
 .hero-logo {
   width: 120px;
   margin-bottom: 20px;
-  animation: logoFloat 4s ease-in-out infinite;
 }
 
 .hero h1 {
   font-size: 60px;
   margin-bottom: 15px;
-  text-shadow: 0 0 15px rgba(59,130,246,0.5), 0 0 30px rgba(59,130,246,0.3);
+  text-shadow: 0 0 15px rgba(0,0,0,0.7);
 }
 
 .subtitle {
@@ -162,20 +134,9 @@ body {
 }
 
 /* ANIMATIONS */
-@keyframes glowMove {
-  0% { transform: translate(-25%, -25%); opacity: 0.3; }
-  50% { transform: translate(25%, 20%); opacity: 0.6; }
-  100% { transform: translate(-25%, -25%); opacity: 0.3; }
-}
-
 @keyframes contentFade {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes logoFloat {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
 }
 
 /* MOBILE */
