@@ -78,14 +78,18 @@ body {
 
 .hero h1 {
   font-size: 48px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  opacity: 0.8;
+  margin-bottom: 30px;
 }
 
 /* BOUTONS */
 .hero-buttons {
   display: flex;
   gap: 15px;
-  margin-bottom: 35px;
 }
 
 .btn {
@@ -106,20 +110,6 @@ body {
   color: black;
 }
 
-/* STATS */
-.stats {
-  display: flex;
-  gap: 80px;
-}
-
-.stats h2 {
-  font-size: 32px;
-}
-
-.stats p {
-  opacity: 0.8;
-}
-
 /* CONTENU NORMAL */
 .content {
   padding: 80px;
@@ -128,15 +118,14 @@ body {
 /* MOBILE */
 @media (max-width: 768px) {
   .hero {
-    height: 600px;
-  }
-
-  .stats {
-    flex-direction: column;
-    gap: 20px;
+    height: 560px;
   }
 
   .hero h1 {
     font-size: 34px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
   }
 }
