@@ -6,18 +6,7 @@
   <title>Nolannax Studios</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* ---------- Intro Animation ---------- */
-    #intro {
-      position: fixed;
-      inset: 0;
-      background: #05060a;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      z-index: 9999;
-    }
-
+    
     #intro img {
       width: 150px;
       opacity: 0;
@@ -128,18 +117,6 @@
   </style>
 </head>
 <body>
-
-<!-- ---------- Intro Animation ---------- -->
-<div id="intro">
-  <img src="logo.png" alt="Logo Nolannax Studios">
-  <h1>Nolannax Studios</h1>
-</div>
-
-<script>
-  setTimeout(() => {
-    document.getElementById("intro").classList.add("intro--hide");
-  }, 3000);
-</script>
 
 <!-- ---------- NAVBAR ---------- -->
 <nav class="navbar">
