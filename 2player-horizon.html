@@ -1,210 +1,164 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2 Player Horizon</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2 Player Horizon - Infos</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    /* ===== FOND ===== */
     body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #0b0b1f, #0b1f0b);
-      color: #fff;
-      min-height: 100vh;
-      padding: 20px;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle at top, #1a1a2e, #0b0c10);
+      color: white;
+      overflow-x: hidden;
     }
 
-    .navbar {
+    /* ===== MENU ===== */
+    .nav {
+      width: 100%;
+      padding: 20px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 20px;
+      position: fixed;
+      top: 0;
+      z-index: 100;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
     }
 
-    .nav-left {
-      font-size: 24px;
-      font-weight: 800;
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 2px;
     }
 
-    .nav-right button {
-      margin-left: 10px;
-      padding: 10px 18px;
-      border-radius: 12px;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-      background: rgba(255,255,255,0.1);
-      color: #fff;
-      transition: 0.2s;
-    }
-
-    .nav-right button:hover {
-      background: rgba(255,255,255,0.2);
-    }
-
-    .content {
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .card {
-      background: rgba(0,0,0,0.45);
-      border-radius: 20px;
-      padding: 22px;
-      border: 1px solid rgba(255,255,255,0.12);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card:before {
-      content: "";
-      position: absolute;
-      top: -60%;
-      left: -60%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle at center, rgba(255,0,0,0.45), transparent 55%),
-                  radial-gradient(circle at center, rgba(0,0,255,0.45), transparent 55%);
-      animation: move 7s linear infinite;
-      opacity: 0.9;
-    }
-
-    @keyframes move {
-      0% { transform: translate(0,0); }
-      50% { transform: translate(25%, 25%); }
-      100% { transform: translate(0,0); }
-    }
-
-    .card-content { position: relative; z-index: 1; }
-
-    .card h3 { font-size: 20px; margin-bottom: 10px; }
-    .card p { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.4; }
-
-    .btn-roblox {
-      display: inline-block;
-      padding: 10px 20px;
-      margin: 10px 10px 0 0;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: bold;
-      color: #fff;
-      background: #4a4cff;
-    }
-
-    .btn-info {
-      display: inline-block;
-      padding: 10px 20px;
-      margin: 10px 10px 0 0;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: bold;
-      color: #fff;
-      background: #ff4a4a;
-    }
-
-    /* Info section */
-    .info-section {
-      display: none;
-    }
-
-    .info {
-      margin-top: 20px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+    .nav-links {
+      display: flex;
       gap: 20px;
     }
 
-    .info-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 16px;
-      padding: 18px;
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      opacity: 0.8;
     }
 
-    .info-card h4 {
-      margin-bottom: 8px;
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    /* ===== SECTION PRINCIPALE ===== */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-top: 80px;
+    }
+
+    .card {
+      width: 90%;
+      max-width: 800px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 44px;
+      letter-spacing: 1px;
+    }
+
+    p {
+      margin-top: 15px;
       font-size: 18px;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    .info-box {
+      margin-top: 25px;
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .info-card {
+      flex: 1;
+      min-width: 240px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 15px;
+      padding: 20px;
+    }
+
+    .info-card h3 {
+      margin: 0;
+      font-size: 20px;
     }
 
     .info-card p {
-      color: rgba(255,255,255,0.75);
-      font-size: 14px;
-      line-height: 1.4;
+      margin: 10px 0 0 0;
+      font-size: 16px;
+      opacity: 0.9;
     }
 
-    @media (max-width: 900px) {
-      .info { grid-template-columns: 1fr; }
+    /* ===== FOOTER ===== */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      opacity: 0.7;
     }
   </style>
 </head>
 <body>
 
-<div class="navbar">
-  <div class="nav-left">2 Player Horizon</div>
-  <div class="nav-right">
-    <button onclick="showHome()">Accueil</button>
-    <button onclick="showInfo()">Info</button>
-  </div>
-</div>
-
-<div class="content">
-
-  <!-- Accueil -->
-  <div id="home">
-    <div class="card">
-      <div class="card-content">
-        <h3>Bienvenue sur 2 Player Horizon</h3>
-        <p>Un obby coop en duo ! Les plateformes rouges sont pour le joueur rouge, et les bleues pour le joueur bleu.</p>
-
-        <a href="https://www.roblox.com/games/ID_DU_JEU" target="_blank" class="btn-roblox">▶ Jouer</a>
-        <a href="#info" class="btn-info" onclick="showInfo()">Info</a>
-      </div>
+  <!-- MENU -->
+  <div class="nav">
+    <div class="logo">2 Player Horizon</div>
+    <div class="nav-links">
+      <a href="#home">Accueil</a>
+      <a href="#info">Infos</a>
+      <a href="#contact">Contact</a>
     </div>
   </div>
 
-  <!-- Info -->
-  <div id="info" class="info-section">
+  <!-- SECTION PRINCIPALE -->
+  <section class="hero" id="home">
     <div class="card">
-      <div class="card-content">
-        <h3>Infos sur le jeu</h3>
-        <div class="info">
-          <div class="info-card">
-            <h4>Mode</h4>
-            <p>Jeu en duo (2 joueurs) avec coopération obligatoire.</p>
-          </div>
-          <div class="info-card">
-            <h4>Objectif</h4>
-            <p>Terminer l’obby ensemble en utilisant les plateformes de votre couleur.</p>
-          </div>
-          <div class="info-card">
-            <h4>Règles</h4>
-            <p>Les plateformes rouges sont uniquement pour le joueur rouge, et les bleues pour le joueur bleu.</p>
-          </div>
-          <div class="info-card">
-            <h4>Conseil</h4>
-            <p>Communiquez avec votre coéquipier pour éviter de tomber et réussir les puzzles.</p>
-          </div>
+      <h1>2 Player Horizon</h1>
+      <p>Un obby coop en duo avec un système de couleurs : rouge pour un joueur, bleu pour l’autre.  
+      Travaillez ensemble pour terminer chaque niveau !</p>
+
+      <div class="info-box" id="info">
+        <div class="info-card">
+          <h3>Mode de jeu</h3>
+          <p>Coopération obligatoire, 2 joueurs seulement.</p>
+        </div>
+        <div class="info-card">
+          <h3>Couleurs</h3>
+          <p>Rouge = plateformes rouges, Bleu = plateformes bleues.</p>
+        </div>
+        <div class="info-card">
+          <h3>Objectif</h3>
+          <p>Terminer l’obby en communiquant et en s’entraidant.</p>
         </div>
       </div>
+
+      <div class="footer" id="contact">
+        Contact : <b>Discord</b> (mettre ton pseudo ici)
+      </div>
     </div>
-  </div>
-
-</div>
-
-<script>
-  function showHome() {
-    document.getElementById('home').style.display = 'block';
-    document.getElementById('info').style.display = 'none';
-  }
-
-  function showInfo() {
-    document.getElementById('home').style.display = 'none';
-    document.getElementById('info').style.display = 'block';
-  }
-
-  // default
-  showHome();
-</script>
+  </section>
 
 </body>
 </html>
