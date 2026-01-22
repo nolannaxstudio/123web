@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2 Player Horizon</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0b0b1f, #0b1f0b);
+      color: #fff;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .nav-left {
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .nav-right button {
+      margin-left: 10px;
+      padding: 10px 18px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      transition: 0.2s;
+    }
+
+    .nav-right button:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .content {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .card {
+      background: rgba(0,0,0,0.45);
+      border-radius: 20px;
+      padding: 22px;
+      border: 1px solid rgba(255,255,255,0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:before {
+      content: "";
+      position: absolute;
+      top: -60%;
+      left: -60%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(255,0,0,0.45), transparent 55%),
+                  radial-gradient(circle at center, rgba(0,0,255,0.45), transparent 55%);
+      animation: move 7s linear infinite;
+      opacity: 0.9;
+    }
+
+    @keyframes move {
+      0% { transform: translate(0,0); }
+      50% { transform: translate(25%, 25%); }
+      100% { transform: translate(0,0); }
+    }
+
+    .card-content { position: relative; z-index: 1; }
+
+    .card h3 { font-size: 20px; margin-bottom: 10px; }
+    .card p { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.4; }
+
+    .btn-roblox {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px 10px 0 0;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #fff;
+      background: #4a4cff;
+    }
+
+    .btn-info {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px 10px 0 0;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #fff;
+      background: #ff4a4a;
+    }
+
+    /* Info section */
+    .info-section {
+      display: none;
+    }
+
+    .info {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .info-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    .info-card h4 {
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .info-card p {
+      color: rgba(255,255,255,0.75);
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 900px) {
+      .info { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="navbar">
+  <div class="nav-left">2 Player Horizon</div>
+  <div class="nav-right">
+    <button onclick="showHome()">Accueil</button>
+    <button onclick="showInfo()">Info</button>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- Accueil -->
+  <div id="home">
+    <div class="card">
+      <div class="card-content">
+        <h3>Bienvenue sur 2 Player Horizon</h3>
+        <p>Un obby coop en duo ! Les plateformes rouges sont pour le joueur rouge, et les bleues pour le joueur bleu.</p>
+
+        <a href="https://www.roblox.com/games/ID_DU_JEU" target="_blank" class="btn-roblox">▶ Jouer</a>
+        <a href="#info" class="btn-info" onclick="showInfo()">Info</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Info -->
+  <div id="info" class="info-section">
+    <div class="card">
+      <div class="card-content">
+        <h3>Infos sur le jeu</h3>
+        <div class="info">
+          <div class="info-card">
+            <h4>Mode</h4>
+            <p>Jeu en duo (2 joueurs) avec coopération obligatoire.</p>
+          </div>
+          <div class="info-card">
+            <h4>Objectif</h4>
+            <p>Terminer l’obby ensemble en utilisant les plateformes de votre couleur.</p>
+          </div>
+          <div class="info-card">
+            <h4>Règles</h4>
+            <p>Les plateformes rouges sont uniquement pour le joueur rouge, et les bleues pour le joueur bleu.</p>
+          </div>
+          <div class="info-card">
+            <h4>Conseil</h4>
+            <p>Communiquez avec votre coéquipier pour éviter de tomber et réussir les puzzles.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function showHome() {
+    document.getElementById('home').style.display = 'block';
+    document.getElementById('info').style.display = 'none';
+  }
+
+  function showInfo() {
+    document.getElementById('home').style.display = 'none';
+    document.getElementById('info').style.display = 'block';
+  }
+
+  // default
+  showHome();
+</script>
+
+</body>
+</html>
