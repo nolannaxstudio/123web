@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>2 Player Horizon - Infos</title>
   <style>
-    /* ===== FOND ANIMÉ ===== */
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -14,7 +13,6 @@
       background: radial-gradient(circle at 20% 20%, #2b2b6b, #0b0c10);
     }
 
-    /* Animation fond */
     @keyframes moveBackground {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
@@ -34,7 +32,6 @@
       z-index: -1;
     }
 
-    /* ===== MENU ===== */
     .nav {
       width: 100%;
       padding: 15px 40px;
@@ -77,7 +74,6 @@
       background: rgba(255, 255, 255, 0.12);
     }
 
-    /* ===== SECTIONS ===== */
     section {
       padding: 100px 20px;
     }
@@ -88,7 +84,6 @@
       margin: 0 auto;
     }
 
-    /* ===== HERO ===== */
     .hero {
       height: 100vh;
       display: flex;
@@ -112,7 +107,6 @@
       opacity: 0.9;
     }
 
-    /* ===== CARDS ===== */
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -148,14 +142,69 @@
       opacity: 0.9;
     }
 
-    /* Animation apparition */
     .show {
       opacity: 1;
       transform: translateY(0);
       transition: all 0.6s ease;
     }
 
-    /* ===== FOOTER ===== */
+    /* ===== NOUVEAU STYLE ===== */
+    .stats {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px;
+      padding: 20px 30px;
+      text-align: center;
+      width: 250px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .stat h2 {
+      margin: 0;
+      font-size: 38px;
+    }
+
+    .stat p {
+      margin: 5px 0 0;
+      opacity: 0.8;
+    }
+
+    .news {
+      margin-top: 30px;
+    }
+
+    .news h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .news ul {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .news li {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 15px;
+      padding: 15px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    }
+
+    .news li span {
+      color: rgba(255,255,255,0.8);
+      font-size: 14px;
+    }
+
     .footer {
       text-align: center;
       padding: 20px;
@@ -163,13 +212,16 @@
       opacity: 0.7;
     }
 
-    /* ===== RESPONSIVE ===== */
     @media (max-width: 900px) {
       .grid {
         grid-template-columns: 1fr;
       }
       .hero h1 {
         font-size: 42px;
+      }
+      .stats {
+        flex-direction: column;
+        align-items: center;
       }
     }
   </style>
@@ -188,8 +240,16 @@
   <section class="hero" id="home">
     <div class="container">
       <h1>2 Player Horizon</h1>
-      <p>Un obby coop en duo avec un système de couleurs : rouge pour un joueur, bleu pour l’autre.  
+      <p>Un obby coop en duo avec un système de couleurs : rouge pour un joueur, bleu pour l’autre.
       Travaillez ensemble pour terminer chaque niveau !</p>
+
+      <!-- COMPTEUR DE JOUEURS (SIMULÉ) -->
+      <div class="stats">
+        <div class="stat">
+          <h2 id="playersCount">0</h2>
+          <p>Joueurs en ligne</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -211,6 +271,16 @@
           <p>Terminer l’obby en communiquant et en s’entraidant.</p>
         </div>
       </div>
+
+      <!-- NEWS -->
+      <div class="news">
+        <h2>Mises à jour</h2>
+        <ul>
+          <li><strong>Nouveau :</strong> Ajout de 5 niveaux supplémentaires ! <span>(12/02/2026)</span></li>
+          <li><strong>À venir :</strong> Mode compétitif 2v2. <span>(Bientôt)</span></li>
+          <li><strong>Prochainement :</strong> Système de skins. <span>(Bientôt)</span></li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -229,6 +299,17 @@
         }
       });
     });
+
+    // Compteur joueurs simulé
+    let count = 0;
+    const playersCount = document.getElementById("playersCount");
+
+    function simulatePlayers() {
+      count += Math.floor(Math.random() * 5) + 1;
+      playersCount.innerText = count;
+    }
+
+    setInterval(simulatePlayers, 1000);
   </script>
 
 </body>
