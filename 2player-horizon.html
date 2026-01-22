@@ -46,13 +46,28 @@
       text-decoration: none;
       font-weight: 500;
       opacity: 0.8;
+      padding: 10px 15px;
+      border-radius: 10px;
+      transition: 0.3s;
     }
 
     .nav-links a:hover {
       opacity: 1;
+      background: rgba(255, 255, 255, 0.1);
     }
 
-    /* ===== SECTION PRINCIPALE ===== */
+    /* ===== SECTIONS ===== */
+    section {
+      padding: 100px 20px;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* ===== HERO ===== */
     .hero {
       height: 100vh;
       display: flex;
@@ -62,53 +77,48 @@
       padding-top: 80px;
     }
 
-    .card {
-      width: 90%;
-      max-width: 800px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    }
-
-    h1 {
+    .hero h1 {
       margin: 0;
-      font-size: 44px;
+      font-size: 52px;
       letter-spacing: 1px;
     }
 
-    p {
+    .hero p {
       margin-top: 15px;
-      font-size: 18px;
+      font-size: 20px;
       line-height: 1.6;
       opacity: 0.9;
     }
 
-    .info-box {
-      margin-top: 25px;
-      display: flex;
+    /* ===== CARDS ===== */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
-      justify-content: space-between;
-      flex-wrap: wrap;
+      margin-top: 30px;
     }
 
-    .info-card {
-      flex: 1;
-      min-width: 240px;
-      background: rgba(255, 255, 255, 0.05);
+    .card {
+      background: rgba(255, 255, 255, 0.06);
       border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 15px;
-      padding: 20px;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      transition: 0.3s;
     }
 
-    .info-card h3 {
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .card h3 {
       margin: 0;
-      font-size: 20px;
+      font-size: 22px;
     }
 
-    .info-card p {
-      margin: 10px 0 0 0;
+    .card p {
+      margin-top: 10px;
       font-size: 16px;
       opacity: 0.9;
     }
@@ -122,15 +132,12 @@
     }
 
     /* ===== RESPONSIVE ===== */
-    @media (max-width: 600px) {
-      .nav {
-        padding: 15px 20px;
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
       }
-      h1 {
-        font-size: 34px;
-      }
-      .card {
-        padding: 20px;
+      .hero h1 {
+        font-size: 42px;
       }
     }
   </style>
@@ -142,38 +149,42 @@
     <div class="logo">2 Player Horizon</div>
     <div class="nav-links">
       <a href="#home">Accueil</a>
-      <a href="#info">Infos</a>
-      <a href="#contact">Contact</a>
     </div>
   </div>
 
-  <!-- SECTION PRINCIPALE -->
+  <!-- ACCUEIL -->
   <section class="hero" id="home">
-    <div class="card">
+    <div class="container">
       <h1>2 Player Horizon</h1>
       <p>Un obby coop en duo avec un système de couleurs : rouge pour un joueur, bleu pour l’autre.  
       Travaillez ensemble pour terminer chaque niveau !</p>
+    </div>
+  </section>
 
-      <div class="info-box" id="info">
-        <div class="info-card">
+  <!-- INFOS -->
+  <section>
+    <div class="container">
+      <h2 style="text-align:center;">Infos du jeu</h2>
+      <div class="grid">
+        <div class="card">
           <h3>Mode de jeu</h3>
           <p>Coopération obligatoire, 2 joueurs seulement.</p>
         </div>
-        <div class="info-card">
+        <div class="card">
           <h3>Couleurs</h3>
           <p>Rouge = plateformes rouges, Bleu = plateformes bleues.</p>
         </div>
-        <div class="info-card">
+        <div class="card">
           <h3>Objectif</h3>
           <p>Terminer l’obby en communiquant et en s’entraidant.</p>
         </div>
       </div>
-
-      <div class="footer" id="contact">
-        Contact : <b>Discord</b> (mettre ton pseudo ici)
-      </div>
     </div>
   </section>
+
+  <div class="footer">
+    © 2026 2 Player Horizon
+  </div>
 
 </body>
 </html>
