@@ -5,12 +5,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>2 Player Horizon - Infos</title>
 <style>
+  /* ===== FOND ANIMÉ ===== */
   body{
     margin:0;
     font-family: Arial, sans-serif;
-    background: radial-gradient(circle at top, #1a1a2e, #0b0c10);
+    overflow-x:hidden;
+    background: radial-gradient(circle at top, #0b0c10, #050607);
     color:white;
   }
+
+  /* Particules simples */
+  .particles {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(circle, rgba(255,255,255,0.25) 1px, transparent 1px),
+      radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px);
+    background-size: 150px 150px, 90px 90px;
+    animation: moveParticles 10s linear infinite;
+    opacity: 0.4;
+  }
+
+  @keyframes moveParticles {
+    0% { transform: translate(0,0); }
+    50% { transform: translate(-30px, 20px); }
+    100% { transform: translate(0,0); }
+  }
+
+  /* ===== MENU ===== */
   .nav{
     width:100%;
     padding:15px 40px;
@@ -23,19 +47,31 @@
     background: rgba(0,0,0,0.45);
     backdrop-filter: blur(10px);
     box-sizing:border-box;
+    animation: navAppear 1s ease;
   }
+
+  @keyframes navAppear {
+    from { transform: translateY(-20px); opacity:0; }
+    to { transform: translateY(0); opacity:1; }
+  }
+
   .logo{
     font-size:22px;
     font-weight:700;
     letter-spacing:2px;
   }
+
   .nav-links a{
     color:white;
     text-decoration:none;
     font-weight:500;
     opacity:0.8;
+    transition: opacity .3s;
   }
-  .nav-links a:hover{opacity:1;}
+
+  .nav-links a:hover{ opacity:1; }
+
+  /* ===== SECTION PRINCIPALE ===== */
   .hero{
     height:100vh;
     display:flex;
@@ -43,7 +79,10 @@
     justify-content:center;
     text-align:center;
     padding-top:80px;
+    position:relative;
+    z-index:1;
   }
+
   .card{
     width:90%;
     max-width:900px;
@@ -52,9 +91,32 @@
     border-radius:20px;
     padding:30px;
     box-shadow:0 10px 30px rgba(0,0,0,0.5);
+    animation: cardAppear 1s ease;
   }
-  h1{margin:0; font-size:44px; letter-spacing:1px;}
-  p{margin-top:15px; font-size:18px; line-height:1.6; opacity:0.9;}
+
+  @keyframes cardAppear {
+    from { transform: translateY(20px); opacity:0; }
+    to { transform: translateY(0); opacity:1; }
+  }
+
+  h1{
+    margin:0;
+    font-size:44px;
+    letter-spacing:1px;
+    animation: textGlow 2.5s ease-in-out infinite;
+  }
+
+  @keyframes textGlow {
+    0%, 100% { text-shadow: 0 0 10px rgba(255,255,255,0.2); }
+    50% { text-shadow: 0 0 25px rgba(255,255,255,0.45); }
+  }
+
+  p{
+    margin-top:15px;
+    font-size:18px;
+    line-height:1.6;
+    opacity:0.9;
+  }
 
   .info-box{
     margin-top:25px;
@@ -63,6 +125,7 @@
     justify-content:space-between;
     flex-wrap:wrap;
   }
+
   .info-card{
     flex:1;
     min-width:240px;
@@ -70,98 +133,115 @@
     border:1px solid rgba(255,255,255,0.12);
     border-radius:15px;
     padding:20px;
+    transition: transform .3s, background .3s;
   }
-  .info-card h3{margin:0; font-size:20px;}
-  .info-card p{margin:10px 0 0 0; font-size:16px; opacity:0.9;}
 
-  /* SECTION NEWS */
+  .info-card:hover{
+    transform: translateY(-6px);
+    background: rgba(255,255,255,0.08);
+  }
+
+  .info-card h3{ margin:0; font-size:20px; }
+  .info-card p{ margin:10px 0 0 0; font-size:16px; opacity:0.9; }
+
+  /* ===== SECTION NEWS ===== */
   .news{
     margin-top: 30px;
     text-align:left;
   }
+
   .news h2{
     margin:0;
     font-size: 26px;
     letter-spacing: 1px;
   }
+
   .news-list{
     margin-top: 15px;
     display:flex;
     flex-direction:column;
     gap: 12px;
   }
+
   .news-item{
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.12);
     border-radius: 15px;
     padding: 15px;
+    animation: newsAppear .6s ease;
   }
+
+  @keyframes newsAppear {
+    from { transform: translateY(10px); opacity:0; }
+    to { transform: translateY(0); opacity:1; }
+  }
+
   .news-item span{
     font-size: 14px;
     opacity: 0.7;
   }
 
+  /* ===== RESPONSIVE ===== */
   @media (max-width: 600px) {
-    .nav{
-      padding: 15px 20px;
-    }
-    h1{
-      font-size: 34px;
-    }
-    .card{
-      padding: 20px;
-    }
+    .nav{ padding: 15px 20px; }
+    h1{ font-size: 34px; }
+    .card{ padding: 20px; }
   }
 </style>
 </head>
 <body>
 
-<div class="nav">
-  <div class="logo">2 Player Horizon</div>
-  <div class="nav-links">
-    <a href="https://nolannaxstudio.netlify.app/">Accueil</a>
-  </div>
-</div>
+  <!-- PARTICULES -->
+  <div class="particles"></div>
 
-<section class="hero">
-  <div class="card">
-    <h1>2 Player Horizon</h1>
-    <p>Un obby coop en duo avec un système de couleurs : rouge pour un joueur, bleu pour l’autre. Travaillez ensemble pour terminer chaque niveau !</p>
-
-    <div class="info-box">
-      <div class="info-card">
-        <h3>Mode de jeu</h3>
-        <p>Coopération obligatoire, 2 joueurs seulement.</p>
-      </div>
-      <div class="info-card">
-        <h3>Couleurs</h3>
-        <p>Rouge = plateformes rouges, Bleu = plateformes bleues.</p>
-      </div>
-      <div class="info-card">
-        <h3>Objectif</h3>
-        <p>Terminer l’obby en communiquant et en s’entraidant.</p>
-      </div>
+  <!-- MENU -->
+  <div class="nav">
+    <div class="logo">2 Player Horizon</div>
+    <div class="nav-links">
+      <a href="https://nolannaxstudio.netlify.app/">Accueil</a>
     </div>
+  </div>
 
-    <!-- NEWS -->
-    <div class="news">
-      <h2>News / Mise à jour</h2>
-      <div class="news-list">
-        <div class="news-item">
-          <strong>📌 Bientôt disponible</strong>
-          <p>Le jeu sera bientôt publié. Reste connecté pour la sortie !</p>
-          <span>01/01/2026</span>
+  <!-- SECTION PRINCIPALE -->
+  <section class="hero">
+    <div class="card">
+      <h1>2 Player Horizon</h1>
+      <p>Un obby coop en duo avec un système de couleurs : rouge pour un joueur, bleu pour l’autre. Travaillez ensemble pour terminer chaque niveau !</p>
+
+      <div class="info-box">
+        <div class="info-card">
+          <h3>Mode de jeu</h3>
+          <p>Coopération obligatoire, 2 joueurs seulement.</p>
         </div>
-        <div class="news-item">
-          <strong>⚙️ Ajout de nouveaux niveaux</strong>
-          <p>Des nouveaux niveaux coop vont être ajoutés très bientôt.</p>
-          <span>05/01/2026</span>
+        <div class="info-card">
+          <h3>Couleurs</h3>
+          <p>Rouge = plateformes rouges, Bleu = plateformes bleues.</p>
+        </div>
+        <div class="info-card">
+          <h3>Objectif</h3>
+          <p>Terminer l’obby en communiquant et en s’entraidant.</p>
         </div>
       </div>
-    </div>
 
-  </div>
-</section>
+      <!-- NEWS -->
+      <div class="news">
+        <h2>News / Mise à jour</h2>
+        <div class="news-list">
+          <div class="news-item">
+            <strong>📌 Bientôt disponible</strong>
+            <p>Le jeu sera bientôt publié. Reste connecté pour la sortie !</p>
+            <span>01/01/2026</span>
+          </div>
+          <div class="news-item">
+            <strong>⚙️ Ajout de nouveaux niveaux</strong>
+            <p>Des nouveaux niveaux coop vont être ajoutés très bientôt.</p>
+            <span>05/01/2026</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
 
 </body>
 </html>
