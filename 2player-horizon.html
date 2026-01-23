@@ -7,7 +7,11 @@
 
 <style>
 /* ===== BASE ===== */
-*{margin:0;padding:0;box-sizing:border-box;}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 body{
   font-family: Arial, sans-serif;
   background:#0b0f1b;
@@ -15,35 +19,51 @@ body{
   overflow-x:hidden;
 }
 
-/* ===== FOND (IDENTIQUE AU SITE) ===== */
+/* ===== HERO (FOND IDENTIQUE NOLANNAX) ===== */
 .hero{
   min-height:100vh;
-  padding-top:100px;
   position:relative;
+  padding-top:80px;
 }
+
 .hero-bg{
   position:absolute;
   inset:0;
-  background:radial-gradient(circle at center, rgba(59,130,246,.25), transparent 60%);
+  background:radial-gradient(
+    circle at center,
+    rgba(59,130,246,0.25),
+    transparent 60%
+  );
   filter:blur(30px);
   animation:bgMove 10s ease-in-out infinite;
 }
+
 .hero-glow{
   position:absolute;
   inset:0;
-  background:radial-gradient(circle at center, rgba(255,255,255,.08), transparent 70%);
+  background:radial-gradient(
+    circle at center,
+    rgba(255,255,255,0.08),
+    transparent 70%
+  );
   animation:glow 6s ease-in-out infinite;
 }
+
 .hero-overlay{
   position:absolute;
   inset:0;
-  background:linear-gradient(180deg, rgba(0,0,0,.6), rgba(0,0,0,.95));
+  background:linear-gradient(
+    180deg,
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.95)
+  );
 }
 
 @keyframes bgMove{
   0%,100%{transform:translateY(0);}
   50%{transform:translateY(25px);}
 }
+
 @keyframes glow{
   0%,100%{opacity:.35;}
   50%{opacity:.7;}
@@ -53,7 +73,7 @@ body{
 .content{
   position:relative;
   z-index:2;
-  max-width:1000px;
+  max-width:1100px;
   margin:auto;
   padding:40px;
   text-align:center;
@@ -61,17 +81,17 @@ body{
 
 /* ===== GAME CARD ===== */
 .game-card{
-  max-width:340px;
-  margin:auto;
   background:rgba(255,255,255,0.03);
   border-radius:14px;
-  box-shadow:0 0 30px rgba(59,130,246,0.35);
-  transition:.3s;
   overflow:hidden;
+  box-shadow:0 0 30px rgba(59,130,246,0.35);
+  transition:transform .3s, box-shadow .3s;
+  max-width:340px;
+  margin:auto;
 }
 .game-card:hover{
   transform:translateY(-8px);
-  box-shadow:0 0 40px rgba(59,130,246,.5);
+  box-shadow:0 0 40px rgba(59,130,246,0.5);
 }
 .game-card img{
   width:100%;
@@ -97,7 +117,8 @@ body{
   background:#e2231a;
   color:white;
   font-weight:bold;
-  padding:10px 20px;
+  font-size:14px;
+  padding:10px 22px;
   border-radius:6px;
   text-decoration:none;
   transition:.2s;
@@ -109,26 +130,26 @@ body{
 
 /* ===== INFOS ===== */
 .info{
-  margin-top:40px;
+  margin-top:50px;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:20px;
 }
 .info-card{
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.12);
   border-radius:14px;
   padding:20px;
 }
 
 /* ===== NEWS ===== */
 .news{
-  margin-top:50px;
+  margin-top:60px;
   text-align:left;
 }
 .news-item{
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.12);
   border-radius:14px;
   padding:15px;
   margin-bottom:12px;
@@ -149,15 +170,15 @@ body{
 
   <div class="content">
 
-    <!-- CARD DU JEU -->
+    <!-- CARTE DU JEU -->
     <div class="game-card">
       <img src="game1.png" alt="2 Player Horizon">
       <div class="game-card-content">
         <h1>2 Player Horizon</h1>
         <p>
-          Jeu coopératif à 2 joueurs.  
-          Les plateformes rouges sont pour le joueur rouge,  
-          les bleues pour le joueur bleu.  
+          Jeu coopératif à 2 joueurs.<br>
+          Les plateformes rouges sont pour le joueur rouge,<br>
+          les bleues pour le joueur bleu.<br>
           Travaillez ensemble pour finir l’obby 🌟
         </p>
 
@@ -191,7 +212,7 @@ body{
 
       <div class="news-item">
         <strong>📌 En développement</strong>
-        <p>Niveaux coopératifs supplémentaires en préparation.</p>
+        <p>Nouveaux niveaux coopératifs en préparation.</p>
         <span>À venir</span>
       </div>
     </div>
