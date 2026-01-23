@@ -19,33 +19,35 @@ body{
   overflow-x:hidden;
 }
 
-/* ===== HERO (FOND IDENTIQUE NOLANNAX) ===== */
+/* ===== HERO (FOND EXACT NOLANNAX) ===== */
 .hero{
   min-height:100vh;
   position:relative;
-  padding-top:80px;
 }
 
+/* 🔥 LE FOND MANQUANT 🔥 */
 .hero-bg{
   position:absolute;
   inset:0;
-  background:radial-gradient(
-    circle at center,
-    rgba(59,130,246,0.25),
-    transparent 60%
-  );
-  filter:blur(30px);
-  animation:bgMove 10s ease-in-out infinite;
+  background:
+    radial-gradient(circle at center,
+      rgba(59,130,246,0.35),
+      rgba(11,15,27,0.9) 70%
+    );
+  filter:blur(40px);
+  z-index:0;
+  animation:bgMove 12s ease-in-out infinite;
 }
 
 .hero-glow{
   position:absolute;
   inset:0;
-  background:radial-gradient(
-    circle at center,
-    rgba(255,255,255,0.08),
-    transparent 70%
-  );
+  background:
+    radial-gradient(circle at center,
+      rgba(255,255,255,0.12),
+      transparent 65%
+    );
+  z-index:1;
   animation:glow 6s ease-in-out infinite;
 }
 
@@ -54,28 +56,28 @@ body{
   inset:0;
   background:linear-gradient(
     180deg,
-    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.5),
     rgba(0,0,0,0.95)
   );
+  z-index:2;
 }
 
 @keyframes bgMove{
   0%,100%{transform:translateY(0);}
-  50%{transform:translateY(25px);}
+  50%{transform:translateY(30px);}
 }
-
 @keyframes glow{
   0%,100%{opacity:.35;}
-  50%{opacity:.7;}
+  50%{opacity:.75;}
 }
 
 /* ===== CONTENT ===== */
 .content{
   position:relative;
-  z-index:2;
+  z-index:5;
   max-width:1100px;
   margin:auto;
-  padding:40px;
+  padding:80px 40px;
   text-align:center;
 }
 
@@ -86,12 +88,12 @@ body{
   overflow:hidden;
   box-shadow:0 0 30px rgba(59,130,246,0.35);
   transition:transform .3s, box-shadow .3s;
-  max-width:340px;
+  max-width:320px;
   margin:auto;
 }
 .game-card:hover{
   transform:translateY(-8px);
-  box-shadow:0 0 40px rgba(59,130,246,0.5);
+  box-shadow:0 0 40px rgba(59,130,246,0.6);
 }
 .game-card img{
   width:100%;
@@ -101,8 +103,8 @@ body{
   padding:20px;
 }
 .game-card h1{
-  font-size:22px;
   margin-bottom:10px;
+  font-size:22px;
 }
 .game-card p{
   font-size:14px;
@@ -176,10 +178,9 @@ body{
       <div class="game-card-content">
         <h1>2 Player Horizon</h1>
         <p>
-          Jeu coopératif à 2 joueurs.<br>
-          Les plateformes rouges sont pour le joueur rouge,<br>
-          les bleues pour le joueur bleu.<br>
-          Travaillez ensemble pour finir l’obby 🌟
+          Joue en duo avec un ami.<br>
+          Rouge = joueur rouge, bleu = joueur bleu.<br>
+          Coopérez pour finir l’obby 🌟
         </p>
 
         <a href="https://www.roblox.com/games/ID_DU_JEU"
@@ -209,10 +210,9 @@ body{
     <!-- NEWS -->
     <div class="news">
       <h2>📰 News</h2>
-
       <div class="news-item">
         <strong>📌 En développement</strong>
-        <p>Nouveaux niveaux coopératifs en préparation.</p>
+        <p>Nouveaux niveaux coop en préparation.</p>
         <span>À venir</span>
       </div>
     </div>
