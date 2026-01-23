@@ -6,60 +6,57 @@
 <title>2 Player Horizon</title>
 
 <style>
-/* ===== BASE ===== */
+/* ===== RESET ===== */
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
 }
+
+/* ⚠️ PAS DE BACKGROUND ICI */
 body{
   font-family: Arial, sans-serif;
-  background:#0b0f1b;
   color:white;
   overflow-x:hidden;
 }
 
-/* ===== HERO (FOND EXACT NOLANNAX) ===== */
-.hero{
-  min-height:100vh;
-  position:relative;
+/* ===== FOND GLOBAL (COMME NOLANNAX) ===== */
+.hero-bg,
+.hero-glow,
+.hero-overlay{
+  position:fixed; /* 🔥 IMPORTANT */
+  inset:0;
+  pointer-events:none;
 }
 
-/* 🔥 LE FOND MANQUANT 🔥 */
 .hero-bg{
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(circle at center,
-      rgba(59,130,246,0.35),
-      rgba(11,15,27,0.9) 70%
-    );
-  filter:blur(40px);
-  z-index:0;
+  background:radial-gradient(
+    circle at center,
+    rgba(59,130,246,0.35),
+    rgba(11,15,27,1) 70%
+  );
+  filter:blur(45px);
+  z-index:-3;
   animation:bgMove 12s ease-in-out infinite;
 }
 
 .hero-glow{
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(circle at center,
-      rgba(255,255,255,0.12),
-      transparent 65%
-    );
-  z-index:1;
+  background:radial-gradient(
+    circle at center,
+    rgba(255,255,255,0.12),
+    transparent 65%
+  );
+  z-index:-2;
   animation:glow 6s ease-in-out infinite;
 }
 
 .hero-overlay{
-  position:absolute;
-  inset:0;
   background:linear-gradient(
     180deg,
-    rgba(0,0,0,0.5),
+    rgba(0,0,0,0.55),
     rgba(0,0,0,0.95)
   );
-  z-index:2;
+  z-index:-1;
 }
 
 @keyframes bgMove{
@@ -71,10 +68,15 @@ body{
   50%{opacity:.75;}
 }
 
+/* ===== PAGE ===== */
+.page{
+  min-height:100vh;
+  position:relative;
+  z-index:1;
+}
+
 /* ===== CONTENT ===== */
 .content{
-  position:relative;
-  z-index:5;
   max-width:1100px;
   margin:auto;
   padding:80px 40px;
@@ -87,13 +89,13 @@ body{
   border-radius:14px;
   overflow:hidden;
   box-shadow:0 0 30px rgba(59,130,246,0.35);
-  transition:transform .3s, box-shadow .3s;
+  transition:.3s;
   max-width:320px;
   margin:auto;
 }
 .game-card:hover{
   transform:translateY(-8px);
-  box-shadow:0 0 40px rgba(59,130,246,0.6);
+  box-shadow:0 0 45px rgba(59,130,246,0.6);
 }
 .game-card img{
   width:100%;
@@ -103,8 +105,8 @@ body{
   padding:20px;
 }
 .game-card h1{
-  margin-bottom:10px;
   font-size:22px;
+  margin-bottom:10px;
 }
 .game-card p{
   font-size:14px;
@@ -112,14 +114,13 @@ body{
   line-height:1.5;
 }
 
-/* ===== BOUTON ROBLOX ===== */
+/* ===== BOUTON ===== */
 .btn-roblox{
   display:inline-block;
   margin-top:15px;
   background:#e2231a;
   color:white;
   font-weight:bold;
-  font-size:14px;
   padding:10px 22px;
   border-radius:6px;
   text-decoration:none;
@@ -165,20 +166,20 @@ body{
 
 <body>
 
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-overlay"></div>
+<!-- 🔥 FOND GLOBAL -->
+<div class="hero-bg"></div>
+<div class="hero-glow"></div>
+<div class="hero-overlay"></div>
 
+<div class="page">
   <div class="content">
 
-    <!-- CARTE DU JEU -->
     <div class="game-card">
       <img src="game1.png" alt="2 Player Horizon">
       <div class="game-card-content">
         <h1>2 Player Horizon</h1>
         <p>
-          Joue en duo avec un ami.<br>
+          Jeu coopératif à 2 joueurs.<br>
           Rouge = joueur rouge, bleu = joueur bleu.<br>
           Coopérez pour finir l’obby 🌟
         </p>
@@ -191,15 +192,14 @@ body{
       </div>
     </div>
 
-    <!-- INFOS -->
     <div class="info">
       <div class="info-card">
         <strong>🎮 Mode</strong>
-        <p>Coopération 2 joueurs</p>
+        <p>Coopération</p>
       </div>
       <div class="info-card">
         <strong>🎯 Objectif</strong>
-        <p>Finir l’obby ensemble</p>
+        <p>Finir l’obby</p>
       </div>
       <div class="info-card">
         <strong>🎨 Gameplay</strong>
@@ -207,18 +207,17 @@ body{
       </div>
     </div>
 
-    <!-- NEWS -->
     <div class="news">
       <h2>📰 News</h2>
       <div class="news-item">
         <strong>📌 En développement</strong>
-        <p>Nouveaux niveaux coop en préparation.</p>
+        <p>Nouveaux niveaux en préparation.</p>
         <span>À venir</span>
       </div>
     </div>
 
   </div>
-</section>
+</div>
 
 </body>
 </html>
