@@ -3,134 +3,673 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nolannax Studios</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Nolannax Studios - AAA Gaming Experience</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    
-    #intro img {
-      width: 150px;
-      opacity: 0;
-      animation: logoFade 2s ease forwards;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    #intro h1 {
-      color: white;
-      margin-top: 16px;
-      opacity: 0;
-      font-size: 42px;
-      animation: textFade 2s ease 1s forwards;
+    :root {
+      --primary: #0f172a;
+      --secondary: #1e293b;
+      --accent: #3b82f6;
+      --accent-light: #60a5fa;
+      --accent-dark: #1e40af;
+      --neon: #06b6d4;
+      --red: #ef4444;
+      --gold: #fbbf24;
+      --text: #f1f5f9;
+      --text-muted: #cbd5e1;
     }
 
-    @keyframes logoFade {
-      0% { opacity: 0; transform: scale(0.6); }
-      50% { opacity: 1; transform: scale(1.1); }
-      100% { opacity: 1; transform: scale(1); }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--primary);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    @keyframes textFade {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
+    /* ---------- NAVBAR ---------- */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(10px);
+      background: rgba(15, 23, 42, 0.85);
+      border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+      z-index: 1000;
+      box-shadow: 0 8px 32px rgba(59, 130, 246, 0.1);
     }
 
-    .intro--hide {
-      animation: fadeOut 1s ease forwards;
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Orbitron', monospace;
+      font-size: 18px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--neon) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    @keyframes fadeOut {
-      to { opacity: 0; visibility: hidden; }
+    .nav-logo {
+      width: 32px;
+      height: 32px;
+      filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.5));
     }
 
-    /* ---------- Game Cards ---------- */
-    .game-card {
-      background: rgba(255,255,255,0.03);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 0 30px rgba(59,130,246,0.35);
-      transition: transform 0.3s, box-shadow 0.3s;
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
       position: relative;
+      transition: color 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--neon));
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-light);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        gap: 20px;
+      }
+      .navbar {
+        padding: 12px 20px;
+      }
+    }
+
+    /* ---------- HERO SECTION ---------- */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding-top: 80px;
+      background: linear-gradient(135deg, var(--primary) 0%, #1a2847 100%);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 10s ease-in-out infinite reverse;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(30px); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      animation: heroFadeIn 1.2s ease forwards;
+    }
+
+    .hero-logo {
+      width: 180px;
+      height: 180px;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 30px rgba(59, 130, 246, 0.4));
+      animation: logoBounce 2s ease-in-out infinite;
+    }
+
+    @keyframes logoBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .hero h1 {
+      font-family: 'Orbitron', monospace;
+      font-size: 72px;
+      font-weight: 900;
+      margin: 20px 0;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--neon) 50%, var(--accent-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 40px;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s;
+      cursor: pointer;
+      border: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--neon) 100%);
+      color: white;
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+    }
+
+    .btn.primary:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--accent-light);
+      border: 2px solid var(--accent);
+    }
+
+    .btn.secondary:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-4px);
+    }
+
+    @keyframes heroFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ---------- GAMES SECTION ---------- */
+    .content {
+      position: relative;
+      padding: 100px 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .content.dark {
+      background: var(--secondary);
+    }
+
+    .content h2 {
+      font-family: 'Orbitron', monospace;
+      font-size: 48px;
+      font-weight: 900;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--neon) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 1px;
+    }
+
+    .content p {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 600px;
+      line-height: 1.8;
+    }
+
+    .games-grid {
+      margin-top: 60px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 40px;
+      justify-items: center;
+    }
+
+    /* ---------- GAME CARDS ---------- */
+    .game-card {
+      position: relative;
+      background: rgba(30, 41, 59, 0.5);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 16px;
+      overflow: hidden;
+      width: 100%;
+      max-width: 320px;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       cursor: pointer;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      max-width: 260px;
+      group: card;
+    }
+
+    .game-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.4s;
+      z-index: 1;
     }
 
     .game-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 40px rgba(59,130,246,0.5);
+      transform: translateY(-12px) scale(1.02);
+      border-color: rgba(59, 130, 246, 0.5);
+      box-shadow: 0 20px 50px rgba(59, 130, 246, 0.3), 
+                  0 0 40px rgba(6, 182, 212, 0.15);
+      background: rgba(30, 41, 59, 0.8);
+    }
+
+    .game-card:hover::before {
+      opacity: 1;
+    }
+
+    .game-image-container {
+      position: relative;
+      overflow: hidden;
+      height: 220px;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, transparent 100%);
     }
 
     .game-card img {
       width: 100%;
-      height: auto; /* image entière visible */
-      display: block;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
     }
 
-    .game-card-content {
-      padding: 16px;
-      text-align: center;
-    }
-
-    .game-card h3 {
-      margin-bottom: 10px;
-      font-size: 18px;
-    }
-
-    .game-card p {
-      opacity: 0.8;
-      margin-bottom: 16px;
-      font-size: 14px;
+    .game-card:hover img {
+      transform: scale(1.1);
     }
 
     .badge-new {
       position: absolute;
-      top: 10px;
-      left: 10px;
-      background: #3b82f6;
+      top: 12px;
+      left: 12px;
+      background: linear-gradient(135deg, var(--red) 0%, #dc2626 100%);
       color: white;
-      font-weight: bold;
-      font-size: 12px;
-      padding: 4px 8px;
+      font-weight: 700;
+      font-size: 11px;
+      padding: 6px 12px;
       border-radius: 6px;
       text-transform: uppercase;
       z-index: 10;
+      letter-spacing: 1px;
+      box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
     }
 
-    /* ---------- Bouton Roblox ---------- */
-    .btn-roblox {
-      display: inline-block;
-      background: #e2231a;
-      color: white;
-      font-weight: bold;
-      font-family: "Arial", sans-serif;
-      font-size: 14px;
-      padding: 10px 20px;
+    .badge-featured {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: linear-gradient(135deg, var(--gold) 0%, #f59e0b 100%);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 11px;
+      padding: 6px 12px;
       border-radius: 6px;
+      text-transform: uppercase;
+      z-index: 10;
+      letter-spacing: 1px;
+    }
+
+    .game-card-content {
+      padding: 24px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      z-index: 2;
+    }
+
+    .game-card h3 {
+      font-family: 'Orbitron', monospace;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text);
+      letter-spacing: 1px;
+    }
+
+    .game-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      flex-grow: 1;
+      line-height: 1.6;
+    }
+
+    .game-stats {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .stat-icon {
+      width: 16px;
+      height: 16px;
+      background: rgba(59, 130, 246, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: var(--accent);
+    }
+
+    .card-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .btn-roblox {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--red) 0%, #dc2626 100%);
+      color: white;
+      font-weight: 700;
+      padding: 12px 16px;
+      border-radius: 8px;
       text-decoration: none;
-      transition: background 0.3s, transform 0.2s;
+      transition: all 0.3s;
+      font-size: 13px;
+      border: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 15px rgba(239, 68, 68, 0.2);
     }
 
     .btn-roblox:hover {
-      background: #b71c1c;
       transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
     }
 
     .btn-info {
-  display: inline-block;
-  padding: 10px 18px;
-  margin-left: 10px;
-  border-radius: 10px;
-  background: #333;
-  color: #fff;
-  font-weight: bold;
-  text-decoration: none;
-  transition: transform 0.2s;
-}
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(59, 130, 246, 0.15);
+      color: var(--accent-light);
+      font-weight: 700;
+      padding: 12px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s;
+      font-size: 13px;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
 
-.btn-info:hover {
-  transform: scale(1.05);
-  background: #444;
-}
+    .btn-info:hover {
+      background: rgba(59, 130, 246, 0.25);
+      border-color: rgba(59, 130, 246, 0.6);
+      transform: translateY(-2px);
+    }
+
+    .empty-state {
+      text-align: center;
+      margin-top: 60px;
+      padding: 40px;
+      color: var(--text-muted);
+      font-size: 16px;
+    }
+
+    .empty-state-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+      opacity: 0.5;
+    }
+
+    /* ---------- ABOUT SECTION ---------- */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-text h3 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: var(--accent-light);
+    }
+
+    .about-text p {
+      margin-bottom: 16px;
+    }
+
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .feature {
+      background: rgba(59, 130, 246, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 3px solid var(--accent);
+    }
+
+    .feature-icon {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .feature h4 {
+      font-size: 16px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .feature p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .content h2 {
+        font-size: 36px;
+      }
+
+      .content {
+        padding: 60px 20px;
+      }
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: var(--secondary);
+      border-top: 1px solid rgba(59, 130, 246, 0.15);
+      padding: 60px 40px 40px;
+      margin-top: 80px;
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-section h4 {
+      font-family: 'Orbitron', monospace;
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: var(--accent-light);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-section a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.3s;
+      font-size: 14px;
+    }
+
+    .footer-section a:hover {
+      color: var(--accent-light);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-light);
+      text-decoration: none;
+      transition: all 0.3s;
+      font-size: 18px;
+    }
+
+    .social-link:hover {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 40px;
+      border-top: 1px solid rgba(59, 130, 246, 0.1);
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .footer-bottom p {
+      margin: 0;
+    }
+
+    /* ---------- SCROLL ANIMATIONS ---------- */
+    .fade-in {
+      opacity: 0;
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
   </style>
 </head>
@@ -139,96 +678,215 @@
 <!-- ---------- NAVBAR ---------- -->
 <nav class="navbar">
   <div class="nav-left">
-    <img src="logo.png" class="nav-logo">
-    <span>Nolannax Studios</span>
+    <img src="logo.png" class="nav-logo" alt="Logo">
+    <span>NOLANNAX</span>
   </div>
   <ul class="nav-links">
     <li><a href="#home">Accueil</a></li>
-    <li><a href="#games">Nos jeux</a></li>
+    <li><a href="#games">Jeux</a></li>
     <li><a href="#about">À propos</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<!-- ---------- HERO ---------- -->
+<!-- ---------- HERO SECTION ---------- -->
 <section id="home" class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-overlay"></div>
-
   <div class="hero-content">
-    <img src="logo.png" class="hero-logo">
-    <h1>Nolannax Studios</h1>
-    <p class="subtitle">Studio de création de jeux Roblox</p>
-
+    <img src="logo.png" class="hero-logo" alt="Nolannax Studios Logo">
+    <h1>NOLANNAX<br>STUDIOS</h1>
+    <p class="subtitle">Expériences de jeu révolutionnaires sur Roblox</p>
     <div class="hero-buttons">
       <a class="btn primary" href="#games">Découvrir nos jeux</a>
+      <a class="btn secondary" href="#about">En savoir plus</a>
     </div>
   </div>
 </section>
 
-<!-- ---------- NOS JEUX ---------- -->
+<!-- ---------- GAMES SECTION ---------- -->
 <section id="games" class="content">
-  <h2>Nos jeux</h2>
+  <h2>Nos Jeux</h2>
+  <p>Découvrez nos créations immersives et innovantes</p>
 
-  <div style="
-    margin-top:50px;
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap:30px;
-    justify-items:center;
-  ">
-
-<!-- JEU 1 -->
-<div class="game-card">
-
-  <div class="badge-new">NEW</div>
-  <img src="game1.png" alt="2 Player Horizon">
-
-  <div class="game-card-content">
-    <h3>2 Player Horizon</h3>
-    <p>Joue en duo avec un ami !
-Les plateformes rouges sont pour le joueur rouge, et les bleues pour le joueur bleu.
-Travaillez ensemble pour finir l’obby ! 🌟</p>
-
-    <!-- Bouton Jouer -->
-    <a href="https://www.roblox.com/games/ID_DU_JEU"
-       target="_blank"
-       class="btn-roblox">
-         ▶    
-    </a>
-
-    <!-- Bouton Info -->
-    <a href="2player-horizon"
-       target="_blank"
-       class="btn-info">
-         INFO
-    </a>
-
-  </div>
-</div>
+  <div class="games-grid">
+    <!-- GAME 1 -->
+    <div class="game-card">
+      <div class="badge-new">Nouveau</div>
+      <div class="game-image-container">
+        <img src="game1.png" alt="2 Player Horizon">
+      </div>
+      <div class="game-card-content">
+        <h3>2 Player Horizon</h3>
+        <div class="game-stats">
+          <div class="stat">
+            <span class="stat-icon">👥</span>
+            <span>2 Joueurs</span>
+          </div>
+          <div class="stat">
+            <span class="stat-icon">⭐</span>
+            <span>Obby</span>
+          </div>
+        </div>
+        <p>Joue en duo avec un ami ! Les plateformes colorées sont spécifiques à chaque joueur. Franchissez ensemble les défis du realm infini ! 🌟</p>
+        <div class="card-buttons">
+          <a href="https://www.roblox.com/games/ID_DU_JEU" target="_blank" class="btn-roblox">▶ Jouer</a>
+          <a href="#game-details" class="btn-info">Info</a>
+        </div>
+      </div>
+    </div>
 
   </div>
 
-  <p style="margin-top:50px; opacity:0.6; text-align:center;">
-    Bientôt d'autres jeux.
-  </p>
+  <div class="empty-state">
+    <div class="empty-state-icon">🚀</div>
+    <p>Plus de jeux en développement... Restez à l'écoute pour les prochaines sorties exclusives !</p>
+  </div>
 </section>
 
-<!-- ---------- À PROPOS ---------- -->
+<!-- ---------- ABOUT SECTION ---------- -->
 <section id="about" class="content dark">
-  <h2>À propos</h2>
-  <p>
-    Nous débutons dans la création de jeux Roblox, mais notre objectif est de proposer
-    des expériences amusantes et immersives.
-  </p>
+  <h2>À Propos</h2>
+  
+  <div class="about-content">
+    <div class="about-text">
+      <h3>Créativité sans limites</h3>
+      <p>
+        Nolannax Studios est un collectif de créateurs passionnés par l'univers Roblox. 
+        Nous concevons des expériences de jeu engageantes qui repoussent les limites de la créativité.
+      </p>
+      <p>
+        Chaque projet est conçu avec attention aux détails, aux mécaniques de gameplay innovantes 
+        et à une atmosphère immersive pour nos joueurs.
+      </p>
+      
+      <div class="about-features">
+        <div class="feature">
+          <div class="feature-icon">🎮</div>
+          <h4>Gameplay Innovant</h4>
+          <p>Des mécaniques uniques et engageantes</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">✨</div>
+          <h4>Design Premium</h4>
+          <p>Visuels sophistiqués et immersifs</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">👥</div>
+          <h4>Communauté</h4>
+          <p>Rejoignez notre communauté croissante</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🚀</div>
+          <h4>Évolution Constante</h4>
+          <p>Mises à jour régulières et contenu nouveau</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="background: rgba(59, 130, 246, 0.1); border-radius: 16px; padding: 40px; border: 1px solid rgba(59, 130, 246, 0.2);">
+      <div style="font-size: 48px; margin-bottom: 20px;">🎯</div>
+      <h3 style="font-size: 24px; margin-bottom: 20px; color: var(--accent-light);">Notre Vision</h3>
+      <p style="color: var(--text-muted); line-height: 1.8;">
+        Devenir les créateurs les plus reconnus de Roblox en proposant des expériences inoubliables 
+        qui inspirent et divertissent des millions de joueurs à travers le monde.
+      </p>
+    </div>
+  </div>
 </section>
 
-<!-- ---------- CONTACT ---------- -->
+<!-- ---------- CONTACT SECTION ---------- -->
 <section id="contact" class="content">
   <h2>Contact</h2>
-  <p>Discord bientôt disponible.</p>
+  <p>Rejoignez notre communauté et restez informé des dernières actualités</p>
+  
+  <div style="margin-top: 40px; max-width: 600px;">
+    <div style="background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); padding: 30px; border-radius: 12px;">
+      <h3 style="margin-bottom: 20px; color: var(--accent-light);">Rejoignez-nous</h3>
+      <p style="margin-bottom: 20px; color: var(--text-muted);">
+        Notre serveur Discord arrive bientôt ! En attendant, vous pouvez nous suivre sur les réseaux sociaux.
+      </p>
+      <div class="social-links">
+        <a href="#" class="social-link" title="Discord">💬</a>
+        <a href="#" class="social-link" title="Twitter">𝕏</a>
+        <a href="#" class="social-link" title="YouTube">▶</a>
+        <a href="#" class="social-link" title="Roblox">🎮</a>
+      </div>
+    </div>
+  </div>
 </section>
+
+<!-- ---------- FOOTER ---------- -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h4>À Propos</h4>
+      <ul>
+        <li><a href="#about">Notre histoire</a></li>
+        <li><a href="#about">Notre équipe</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Jeux</h4>
+      <ul>
+        <li><a href="#games">Tous nos jeux</a></li>
+        <li><a href="#games">À venir</a></li>
+        <li><a href="#">Téléchargements</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Communauté</h4>
+      <ul>
+        <li><a href="#">Discord</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">Roblox Group</a></li>
+      </ul>
+      <div class="social-links">
+        <a href="#" class="social-link">💬</a>
+        <a href="#" class="social-link">𝕏</a>
+        <a href="#" class="social-link">▶</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; 2024 Nolannax Studios. Tous droits réservés. | Conçu avec passion ❤️</p>
+  </div>
+</footer>
+
+<script>
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Intersection Observer for fade-in animations
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fade-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.game-card, .feature, .about-text').forEach(el => {
+    el.classList.add('fade-in');
+    observer.observe(el);
+  });
+</script>
 
 </body>
 </html>
